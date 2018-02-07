@@ -1,0 +1,249 @@
+:root {
+  --main-dark-color: #022b3a;
+  --main-bg-color: #a3d9ff;
+  --lighter-bg-color: #c1e5ff;
+  /*--alt-bg-color: #e8aeb7;*/
+  --alt-bg-color: white;
+  --alt-3-color: #dcd6f7;
+  --alt-4-color: #549f93;
+
+}
+
+.colors {
+  color: var(--main-dark-color);
+  font-family: 'Merriweather', serif;
+}
+
+.well-colors {
+  background-color: var(--lighter-bg-color);
+}
+
+.alt-side-colors {
+  color: var(--alt-3-color);
+  background-color: var(--main-dark-color);
+}
+.alt-side-colors-2 {
+  color: var(--alt3-color);
+  background-color: var(--alt-bg-color);
+}
+
+.nobreak {
+    white-space: nowrap;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+h2 {
+  padding: 0 .5rem;
+  margin: .3rem 0;
+  font-size: 1.2rem;
+}
+h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  padding: 0.3em 0;
+}
+h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+ul {
+  padding: 0 2.5rem;
+  margin: .2rem 0;
+}
+
+.container {
+  display: grid;
+  grid-gap: 0;
+  grid-template-areas:
+    "header"
+    "title"
+    "description"
+    "skills"
+    "education"
+    "experiences";
+}
+
+.contact {
+  grid-area : header;
+  padding: 1rem 1.5rem;
+  hyphens: manual;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.contact .name {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: .3rem;
+  flex: 2 100%;
+}
+.contact .address {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+.contact .age {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.contact .email {
+  display: block;
+  font-size: 0.8rem;
+
+}
+.contact .tel {
+  display: block;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.contact .flex-item-left {
+    flex: 1 50%;
+    margin-bottom: .1rem;
+}
+.contact .flex-item-right {
+    flex: 1 30%;
+    text-align: left;
+    margin-bottom: .1rem;
+}
+
+
+.title {
+  grid-area : title;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+.description {
+  grid-area: description;
+  text-indent: 1rem;
+  font-style: italic;
+  padding: .5rem 1rem;
+  margin: 3px 0;
+  border-bottom: 1px solid black;
+}
+
+.skills {
+  grid-area: skills;
+}
+.skills ul li {
+  list-style: none;
+}
+ul.functional li::before {
+  content: "✔";
+  color: var(--alt-4-color);
+  display: inline-block;
+  width: 1rem;
+  margin: 0 .2rem 0 -1rem;
+}
+ul.technical>li::before {
+  content: ">_";
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--alt-4-color);
+  display: inline-block;
+  width: 1rem;
+  margin: 0 .3rem 0 -1.4rem;
+}
+ul.technical>li>div:first-child {
+    display: inline-block;
+}
+ul.technical>li>div:first-child::after {
+  content: "{";
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.3rem;
+  color: var(--alt-4-color);
+  display: inline-block;
+  width: 1rem;
+  margin: -.3rem .5rem;
+}
+ul.technical>li::after {
+  content: "}";
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.3rem;
+  color: var(--alt-4-color);
+  display: inline-block;
+  width: 1rem;
+  margin: -.5rem 0;
+}
+ul.technical>li>ul {
+  padding: 0 1.2rem;
+}
+.stars {
+  color: var(--alt-4-color);
+}
+
+.education {
+  grid-area: education;
+}
+.education .item {
+  padding: 0 1.5rem;
+  margin: .3rem 0;
+  font-size: .8rem;
+}
+.education .item .year {
+  padding-right: .5rem;
+  font-weight: bold;
+}
+
+
+.experiences {
+  grid-area: experiences;
+}
+
+.experience {
+  padding: 0 .8rem;
+  margin: .3rem 0;
+  font-size: 1rem;
+}
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: baseline;
+}
+.experience .duration {
+  display: inline-block;
+  font-style: italic;
+  font-size: .8rem;
+}
+.position {
+  padding: 0 0 .5rem;
+}
+
+
+@media (min-width: 700px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header title title"
+      "header description description"
+      "skills experiences experiences"
+      "education experiences experiences";
+  }
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    border-bottom: none;
+  }
+
+  .contact {
+    align-content: left;
+  }
+  .contact .name,
+  .contact .flex-item-left,
+  .contact .flex-item-right {
+      flex: 1 100%;
+  }
+}
