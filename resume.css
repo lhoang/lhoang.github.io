@@ -221,7 +221,7 @@ ul.technical>li>ul {
 }
 
 
-@media (min-width: 700px) {
+@media (min-width: 40.063em) {
   .container {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
