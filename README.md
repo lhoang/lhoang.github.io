@@ -8,6 +8,7 @@
 * CSS ::before et ::after
 * CSS Flexbox
 * CSS Mediaqueries pour responsive
+* Viewport
 * Firefox Developer Edition + DevTools Grid / Responsive Design Mode
 * Github Pages
 
@@ -22,3 +23,4 @@
 * https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 *  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility
 * https://www.mozilla.org/fr/firefox/channel/desktop/
+* https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
