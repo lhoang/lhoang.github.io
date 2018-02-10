@@ -31,6 +31,11 @@
     white-space: nowrap;
 }
 
+/*.TODO {
+  color: red;
+  font-style:italic;
+}*/
+
 h1 {
   margin: 1rem 0;
   font-size: 2rem;
@@ -56,6 +61,9 @@ ul {
   padding: 0 2.5rem;
   margin: .2rem 0;
 }
+p {
+  margin: .3rem 0;
+}
 
 .container {
   display: grid;
@@ -64,9 +72,9 @@ ul {
     "header"
     "title"
     "description"
+    "experiences"
     "skills"
-    "education"
-    "experiences";
+    "education";
 }
 
 .contact {
@@ -113,7 +121,9 @@ ul {
     text-align: left;
     margin-bottom: .1rem;
 }
-
+.contact .hide {
+    display: none;
+}
 
 .title {
   grid-area : title;
@@ -128,7 +138,6 @@ ul {
   font-style: italic;
   padding: .5rem 1rem;
   margin: 3px 0;
-  border-bottom: 1px solid black;
 }
 
 .skills {
@@ -138,7 +147,7 @@ ul {
   list-style: none;
 }
 ul.functional li::before {
-  content: "✔";
+  content: "✓";
   color: var(--alt-4-color);
   display: inline-block;
   width: 1rem;
@@ -220,7 +229,6 @@ ul.technical>li>ul {
   padding: 0 0 .5rem;
 }
 
-
 @media (min-width: 40.063em) {
   .container {
     grid-template-columns: 1fr 1fr 1fr;
@@ -232,10 +240,6 @@ ul.technical>li>ul {
   }
   .title {
     font-size: 2rem;
-  }
-
-  .description {
-    border-bottom: none;
   }
 
   .contact {
