@@ -124,6 +124,9 @@ p {
 .contact .hide {
     display: none;
 }
+/* .contact .qr {
+  display: none;
+} */
 
 .title {
   grid-area : title;
@@ -229,7 +232,7 @@ ul.technical>li>ul {
   padding: 0 0 .5rem;
 }
 
-@media (min-width: 40.063em) {
+@media print, screen and (min-width: 40.063em) {
   .container {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
@@ -249,5 +252,44 @@ ul.technical>li>ul {
   .contact .flex-item-left,
   .contact .flex-item-right {
       flex: 1 100%;
+  }
+}
+
+@media screen {
+  html, body {
+    font-size: 100%;
+  }
+
+  .contact .qr {
+    display: none;
+    padding: 5px 0;
+  }
+}
+
+@media print {
+  html, body {
+    font-size: 10pt;
+  }
+
+  h2, h3, h4, h5 {
+   page-break-after: avoid;
+  }
+  ul, img {
+   page-break-inside: avoid;
+  }
+
+  .contact .qr {
+    display: block;
+    padding: 5px 0;
+    margin: 0 auto;
+  }
+  .qr img {
+      width: 100px;
+      height: 100px;
+  }
+  .qr .url {
+    font-size: 9px;
+    text-align: center;
+    margin-top: -4px;
   }
 }

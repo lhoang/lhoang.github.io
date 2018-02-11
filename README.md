@@ -1,5 +1,5 @@
 # CV simple
-
+https://lhoang.github.io
 
 ## Nouveautés
 * CSS Grid
@@ -11,6 +11,9 @@
 * Viewport
 * Firefox Developer Edition + DevTools Grid / Responsive Design Mode
 * Github Pages
+* QR code
+* Print
+
 
 
 
@@ -24,3 +27,5 @@
 *  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility
 * https://www.mozilla.org/fr/firefox/channel/desktop/
 * https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+* https://www.unitag.io/fr/qrcode
+* https://www.smashingmagazine.com/2013/03/tips-and-tricks-for-print-style-sheets/
