@@ -4,7 +4,8 @@
   --lighter-bg-color: #c1e5ff;
   /*--alt-bg-color: #e8aeb7;*/
   --alt-bg-color: white;
-  --alt-3-color: #dcd6f7;
+  /* --alt-3-color: #dcd6f7; */
+  --alt-3-color: white;
   --alt-4-color: #549f93;
 
 }
@@ -74,6 +75,7 @@ p {
     "description"
     "experiences"
     "skills"
+    "cloud"
     "education";
 }
 
@@ -149,6 +151,10 @@ p {
 .skills ul li {
   list-style: none;
 }
+.technical {
+  display: none;
+}
+
 ul.functional li::before {
   content: "✓";
   color: var(--alt-4-color);
@@ -194,8 +200,135 @@ ul.technical>li>ul {
   color: var(--alt-4-color);
 }
 
+.cloud {
+  grid-area: cloud;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+/* div carrée : height = width */
+.cloud:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.cloud-content{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.circle {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: thin solid;
+  font-size: .8rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+}
+.circle.circle4 {
+  width: calc(100%/3);
+  height: calc(100%/3);
+}
+.circle.circle3 {
+  width: calc(100%/4);
+  height: calc(100%/4)
+}
+.circle.circle2 {
+  width: calc(100%/5);
+  height: calc(100%/5);
+}
+.circle.circle1 {
+  width: calc(100%/7);
+  height: calc(100%/7);
+}
+.backend {
+  background-color: rgba(169,221,214,.6);
+  border-color: rgba(169,221,214,1);
+}
+.frontend {
+  background-color: rgba(220,214,247,.6);
+  border-color: rgba(220,214,247,1);
+}
+.others {
+  background-color: rgba(252,246,195,.6);
+  border-color: rgba(252,246,195,1);
+}
+
+/* Java */
+.circle:nth-child(1) {
+  top: calc(100%*7/20);
+  left: calc(100%*6/20);
+}
+/* Scala */
+.circle:nth-child(2) {
+  top: calc(100%*4/20);
+  left: calc(100%*6/20);
+}
+/* Play 2 */
+.circle:nth-child(3) {
+  top: calc(100%*4/20);
+  left: calc(100%*10/20);
+}
+/* Akka */
+.circle:nth-child(4) {
+  top: calc(100%*3/20);
+  left: calc(100%*10/20);
+}
+/* REST */
+.circle:nth-child(5) {
+  top: calc(100%*7/20);
+  left: calc(100%*5/20);
+  z-index: 9;
+}
+/* JS */
+.circle:nth-child(6) {
+  top: calc(100%*10/20);
+  left: calc(100%*4/20);
+  z-index: 8;
+}
+/* JQuery*/
+.circle:nth-child(7) {
+  top: calc(100%*12/20);
+  left: calc(100%*6/20);
+}
+/* D3 */
+.circle:nth-child(8) {
+  top: calc(100%*10/20);
+  left: calc(100%*11/20);
+}
+/* Vue */
+.circle:nth-child(9) {
+  top: calc(100%*13/20);
+  left: calc(100%*10/20);
+}
+/* HTML */
+.circle:nth-child(10) {
+  top: calc(100%*15/20);
+  left: calc(100%*10/20);
+}
+/* CSS*/
+.circle:nth-child(11) {
+  top: calc(100%*16/20);
+  left: calc(100%*8/20);
+}
+/* Git*/
+.circle:nth-child(12) {
+  top: calc(100%*6/20);
+  left: calc(100%*2/20);
+}
+
+
+
 .education {
   grid-area: education;
+  padding: .5rem 0;
 }
 .education .item {
   padding: 0 1.5rem;
@@ -239,6 +372,7 @@ ul.technical>li>ul {
       "header title title"
       "header description description"
       "skills experiences experiences"
+      "cloud experiences experiences"
       "education experiences experiences";
   }
   .title {
