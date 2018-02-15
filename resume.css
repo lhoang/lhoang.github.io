@@ -365,15 +365,15 @@ ul.technical>li>ul {
   padding: 0 0 .5rem;
 }
 
-@media print, screen and (min-width: 40.063em) {
+@media print, screen and (min-width: 35em) {
   .container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas:
-      "header title title"
-      "header description description"
-      "skills experiences experiences"
-      "cloud experiences experiences"
-      "education experiences experiences";
+      "header title"
+      "header description"
+      "skills experiences"
+      "cloud experiences"
+      "education experiences";
   }
   .title {
     font-size: 2rem;
