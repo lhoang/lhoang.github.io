@@ -13,6 +13,10 @@ https://lhoang.github.io
 * Github Pages
 * QR code
 * Print
+* Aspect ratio : carré
+* cercles en JS
+* CSS calc 
+* CSS nth-child
 
 
 
@@ -29,3 +33,4 @@ https://lhoang.github.io
 * https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
 * https://www.unitag.io/fr/qrcode
 * https://www.smashingmagazine.com/2013/03/tips-and-tricks-for-print-style-sheets/
+* https://css-tricks.com/aspect-ratio-boxes/

@@ -59,7 +59,7 @@ h4 {
   font-weight: bold;
 }
 ul {
-  padding: 0 2.5rem;
+  padding: 0 1rem 0 2.5rem;
   margin: .2rem 0;
 }
 p {
@@ -147,6 +147,7 @@ p {
 
 .skills {
   grid-area: skills;
+  padding: 0 1rem;
 }
 .skills ul li {
   list-style: none;
@@ -154,15 +155,10 @@ p {
 .technical {
   display: none;
 }
-
-ul.functional li::before {
-  content: "✓";
-  color: var(--alt-4-color);
-  display: inline-block;
-  width: 1rem;
-  margin: 0 .2rem 0 -1rem;
+.skills h2 {
+  padding: 0 1.5rem;
 }
-ul.technical>li::before {
+.skills h2::before {
   content: ">_";
   font-family: 'Source Code Pro', monospace;
   font-size: 1.1rem;
@@ -170,32 +166,46 @@ ul.technical>li::before {
   color: var(--alt-4-color);
   display: inline-block;
   width: 1rem;
-  margin: 0 .3rem 0 -1.4rem;
+  margin: 0 .5rem 0 -1.4rem;
 }
-ul.technical>li>div:first-child {
-    display: inline-block;
-}
-ul.technical>li>div:first-child::after {
+
+.skills h2::after {
   content: "{";
   font-family: 'Source Code Pro', monospace;
   font-size: 1.3rem;
+  font-weight: normal;
   color: var(--alt-4-color);
   display: inline-block;
   width: 1rem;
   margin: -.3rem .5rem;
 }
-ul.technical>li::after {
+.skills ul {
+  padding: 0;
+  margin: 0;
+}
+.skills ul::after {
   content: "}";
   font-family: 'Source Code Pro', monospace;
   font-size: 1.3rem;
+  font-weight: normal;
   color: var(--alt-4-color);
   display: inline-block;
   width: 1rem;
-  margin: -.5rem 0;
+  margin: -.5rem 1.3rem;
 }
-ul.technical>li>ul {
-  padding: 0 1.2rem;
+.skills li {
+  padding: 0 0 0 2rem;
+  line-height: 1.1rem;
 }
+.skills li::after{
+  content: ",";
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--alt-4-color);
+  margin-left: -.1rem;
+}
+
 .stars {
   color: var(--alt-4-color);
 }
@@ -206,6 +216,7 @@ ul.technical>li>ul {
   width: 100%;
   overflow: hidden;
   margin: 2rem 0;
+  height: max-content;
 }
 /* div carrée : height = width */
 .cloud:before{
@@ -226,7 +237,7 @@ ul.technical>li>ul {
   height: 3rem;
   border-radius: 50%;
   border: thin solid;
-  font-size: .8rem;
+  font-size: .9rem;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -283,7 +294,7 @@ ul.technical>li>ul {
 }
 /* REST */
 .circle:nth-child(5) {
-  top: calc(100%*7/20);
+  top: calc(100%*8/20);
   left: calc(100%*5/20);
   z-index: 9;
 }
@@ -365,7 +376,7 @@ ul.technical>li>ul {
   padding: 0 0 .5rem;
 }
 
-@media print, screen and (min-width: 35em) {
+@media print, screen and (min-width: 42em) {
   .container {
     grid-template-columns: 1fr 2fr;
     grid-template-areas:
@@ -373,6 +384,7 @@ ul.technical>li>ul {
       "header description"
       "skills experiences"
       "cloud experiences"
+      ". experiences"
       "education experiences";
   }
   .title {
@@ -386,6 +398,10 @@ ul.technical>li>ul {
   .contact .flex-item-left,
   .contact .flex-item-right {
       flex: 1 100%;
+  }
+
+  .circle {
+    font-size: 75%;
   }
 }
 
