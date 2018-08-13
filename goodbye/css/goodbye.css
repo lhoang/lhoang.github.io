@@ -1,0 +1,39 @@
+circle {
+    fill: rgb(31, 119, 180);
+    fill-opacity: .25;
+    stroke: rgb(31, 119, 180);
+    stroke-width: 1px;
+}
+
+circle.node.root {
+    stroke: none;
+    fill: none;
+}
+
+circle.leaf.center-elt {
+    fill: red;
+}
+
+circle.leaf {
+    fill: #ff7f0e;
+    fill-opacity: 1;
+}
+
+circle.ratp-spawn {
+    fill: lightgray;
+}
+
+
+text {
+    font: 15px sans-serif;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.node.spawn text {
+    fill: none;
+}
+
+.node.old {
+    fill: lightgray;
+}
