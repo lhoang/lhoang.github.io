@@ -1,0 +1,1056 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!--Font-Awesome-->
+    <script defer src="lib/externals/fontawesome-all.min.js"></script>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>La Musique pour les noobs</h2>
+            <div class="subtitle">Ou ce que les cours de musique du collège auraient dû m'apprendre</div>
+            <aside class="notes">
+                Appuyer sur 'S' pour voir les notes !
+                Préparer Spotify
+            </aside>
+        </section>
+        <section>
+            <h2>Du rythme</h2>
+        </section>
+        <section>
+            <img src="assets/rythme.png" alt="rythme">
+        </section>
+        <section data-state="rythmOff">
+            <h3>Mesure et chiffrage</h3>
+            <div class="chords">
+                <span>X</span>
+                <span>Y</span>
+            </div>
+            <div class="chords">
+                <span>nombre de Y dans une mesure</span>
+                <span>unité par rapport à la ronde (ex: 4=noire, 8=croche)</span>
+            </div>
+
+            <div>Exemples courants : </div>
+            <div class="chords">
+                <span>4</span>
+                <span>4</span>
+            </div>
+            <div class="chords">
+                <span>3</span>
+                <span>4</span>
+            </div>
+            <div class="chords">
+                <span>6</span>
+                <span>8</span>
+            </div>
+            <div class="fragment">Blindtest !</div>
+            <aside class="notes">
+                4/4 : Gabrielle <br>
+                6/8 : Metallica <br>
+                <br>
+                Jump around, Joe Dassin, Le pénitencier, Norvegian wood
+                <br>
+                Bonus : Mission impossible , Take Five, Hey ya
+                <br>youtube  : Schisme Tool
+            </aside>
+        </section>
+        <section data-state="rythmOn">
+            Un bon public tape sur <span class="rythm rythm24">2</span> et <span class="rythm rythm24">4</span>.
+
+            <aside class="notes">
+                I got a woman - Ray Charles
+                Ajouter ce mp3 sous le nom assets/4.0.mp3
+            </aside>
+        </section>
+        <section data-state="rythmOff">
+            <h2>Un peu de physique</h2>
+            <aside class="notes">
+                (Rebrancher l'enceinte)
+            </aside>
+        </section>
+        <section>
+            <div>Un son musical</div>
+            <ul>
+                <li>Amplitude</li>
+                <li>Fréquence</li>
+                <li>Timbre</li>
+            </ul>
+            <div class="simpleWave">
+                <div id="waveform">
+                    <div id="waveform1" class="fragment"></div>
+                    <div id="waveform2" class="fragment"></div>
+                </div>
+                <div class="zoom-slide">
+                    <div class="minus">
+                        <i class="fas fa-search-minus"></i>
+                    </div>
+                    <div class="slider">
+                        <input id="slider" type="range" min="1" max="5000" value="1" style="width: 100%"/>
+                    </div>
+                    <div class="plus">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <section>
+                <h3>Fréquence</h3>
+                A4=440Hz
+                <img src="assets/registre.jpg" width="850" height="520">
+                <aside class="notes">
+                    Echelle Log <br>
+                    Pas toujours 440HZ<br>
+                    XVIIe 404Hz <br>
+                    Baroque - 415Hz
+                </aside>
+            </section>
+            <section>
+                <div class="fragment visible fade-out" data-fragment-index="1">(Petite parenthèse historique)</div>
+                <div class="fragment fade-up" data-fragment-index="1">
+                    <div class="fragment fade-out" data-fragment-index="3">
+                        <span class="fragment highlight-red" data-fragment-index="2">Ut</span> queant laxis
+                        <span class="fragment highlight-red" data-fragment-index="2">re</span>sonare fibris <br>
+                        <span class="fragment highlight-red" data-fragment-index="2">mi</span>ra gestorum
+                        <span class="fragment highlight-red" data-fragment-index="2">fa</span>muli tuorum, <br>
+                        <span class="fragment highlight-red" data-fragment-index="2">sol</span>ve polluti
+                        <span class="fragment highlight-red" data-fragment-index="2">la</span>bii reatum, <br>
+                        <span class="fragment highlight-red" data-fragment-index="2">S</span>ancte
+                        <span class="fragment highlight-red" data-fragment-index="2">I</span>ohannes.
+                    </div>
+                </div>
+                <div class="fragment fade-up" data-fragment-index="3">
+                    <table>
+                        <tr>
+                            <td>France, Italie, Espagne, Portugal</td>
+                            <td>la</td>
+                            <td>si</td>
+                            <td>do</td>
+                            <td>ré</td>
+                            <td>mi</td>
+                            <td>fa</td>
+                            <td>sol</td>
+                        </tr>
+                        <tr>
+                            <td>Angleterre</td>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>C</td>
+                            <td>D</td>
+                            <td>E</td>
+                            <td>F</td>
+                            <td>G</td>
+                        </tr>
+                    </table>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>XIe : poème</li>
+                        <li>XVIe : Si</li>
+                        <li>XVIIe: Do</li>
+                        <li>XIe : A, B...</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h4>Echelle diatonique</h4>
+                <div>
+                    <table class="echelle">
+                        <tr>
+                            <td>do</td>
+                            <td></td>
+                            <td>ré</td>
+                            <td></td>
+                            <td>mi</td>
+                            <td></td>
+                            <td>fa</td>
+                            <td></td>
+                            <td>sol</td>
+                            <td></td>
+                            <td>la</td>
+                            <td></td>
+                            <td>si</td>
+                            <td></td>
+                            <td>do</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>1T</td>
+                            <td></td>
+                            <td>1T</td>
+                            <td></td>
+                            <td>&frac12;T</td>
+                            <td></td>
+                            <td>1T</td>
+                            <td></td>
+                            <td>1T</td>
+                            <td></td>
+                            <td>1T</td>
+                            <td></td>
+                            <td>&frac12;T</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <p>&#9839; = +&frac12; ton &nbsp;&nbsp;&mdash;&nbsp;&nbsp; &#9837; = -&frac12; ton</p>
+                </div>
+                <div>
+                    <svg id="piano-keyboard" width="700px" height="210">
+                        <g class="white">
+                            <rect x="0" y="0" width="100" height="210"/>
+                            <rect x="100" y="0" width="100" height="210"/>
+                            <rect x="200" y="0" width="100" height="210"/>
+                            <rect x="300" y="0" width="100" height="210"/>
+                            <rect x="400" y="0" width="100" height="210"/>
+                            <rect x="500" y="0" width="100" height="210"/>
+                            <rect x="600" y="0" width="100" height="210"/>
+                            <text x="30" y="200">Do</text>
+                            <text x="130" y="200">Ré</text>
+                            <text x="230" y="200">Mi</text>
+                            <text x="330" y="200">Fa</text>
+                            <text x="430" y="200">Sol</text>
+                            <text x="530" y="200">La</text>
+                            <text x="630" y="200">Si</text>
+                        </g>
+                        <g class="black">
+                            <rect x="66" y="0" width="66" height="140"/>
+                            <rect x="166" y="0" width="66" height="140"/>
+                            <rect x="366" y="0" width="66" height="140"/>
+                            <rect x="466" y="0" width="66" height="140"/>
+                            <rect x="566" y="0" width="66" height="140"/>
+                            <text x="70" y="60">Do&#9839;</text>
+                            <text x="170" y="60">Ré&#9839;</text>
+                            <text x="370" y="60">Fa&#9839;</text>
+                            <text x="470" y="60">Sol&#9839;</text>
+                            <text x="570" y="60">La&#9839;</text>
+                            <text x="70" y="100">Ré&#9837;</text>
+                            <text x="170" y="100">Mi&#9837;</text>
+                            <text x="365" y="100">Sol&#9837;</text>
+                            <text x="470" y="100">La&#9837;</text>
+                            <text x="570" y="100">Si&#9837;</text>
+                        </g>
+                    </svg>
+                </div>
+                <div> = 12 demi-tons</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Timbre</h3>
+                <div class="timbre">
+                    <img src="assets/pure-sine.png"
+                         class="wave">
+                    <div class="desc fragment highlight-green"
+                         data-audio-src="assets/pure-sine.mp3">Sinusoïde pure
+                    </div>
+                    <img src="assets/piano.png"
+                         class="wave">
+                    <div class="desc fragment highlight-green"
+                         data-audio-src="assets/piano.mp3">Piano
+                    </div>
+                    <img src="assets/guitar.png"
+                         class="wave">
+                    <div class="desc fragment highlight-green"
+                         data-audio-src="assets/guitar.mp3">Guitare heavymetal
+                    </div>
+                    <img src="assets/square.png"
+                         class="wave">
+                    <div class="desc fragment highlight-green"
+                         data-audio-src="assets/square.mp3">Lead Square
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Perception des notes</h3>
+                <p>Transformée de Fourier</p>
+                <img src="assets/Fourier_transform_time_and_frequency_domains.gif" width="500" height="400"
+                     class="fragment">
+                <aside class="notes">
+                    domaine temps -> domaine fréquence <br>
+                    harmoniques
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Intervalles</h3>
+                <table class="intervalles">
+                    <tbody>
+                    <tr>
+                        <th>Intervalle</th>
+                        <td>
+                            <span class="fragment" data-fragment-index="1">Unisson</span>
+                        </td>
+                        <td>
+                            <span class="fragment" data-fragment-index="4">Seconde</span>
+                        </td>
+                        <td><span class="fragment" data-fragment-index="3">Tierce</span></td>
+                        <td><span class="fragment" data-fragment-index="2">Quarte</span></td>
+                        <td><span class="fragment" data-fragment-index="2">Quinte</span></td>
+                        <td><span class="fragment" data-fragment-index="3">Sixte</span></td>
+                        <td><span class="fragment" data-fragment-index="4">Septième</span></td>
+                        <td><span class="fragment" data-fragment-index="1">Octave</span></td>
+                    </tr>
+                    <tr>
+                        <th>entre do et</th>
+                        <td>do</td>
+                        <td>ré</td>
+                        <td>mi</td>
+                        <td>fa</td>
+                        <td>sol</td>
+                        <td>la</td>
+                        <td>si</td>
+                        <td>do</td>
+                    </tr>
+                    <tr>
+                        <th>tons</th>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>2&frac12;</td>
+                        <td>3&frac12;</td>
+                        <td>4&frac12;</td>
+                        <td>5&frac12;</td>
+                        <td>6</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h3>Corde</h3>
+                <svg id="string" width="800px" height="210">
+                    <g class="string-line">
+                        <line x1="50" y1="100" x2="750" y2="100"></line>
+                        <line x1="50" y1="105" x2="50" y2="95"></line>
+                        <line x1="750" y1="105" x2="750" y2="95"></line>
+
+                        <!--Intervalles-->
+
+                        <line x1="400" y1="105" x2="400" y2="95"
+                              class="fragment" data-fragment-index="1"></line>
+                        <line x1="516.66" y1="105" x2="516.66" y2="95"
+                              class="fragment" data-fragment-index="2"></line>
+                        <line x1="575" y1="105" x2="575" y2="95"
+                              class="fragment" data-fragment-index="3"></line>
+                    </g>
+                    <g class="annotations">
+                        <g class="fragment" data-fragment-index="1">
+                            <text x="400" y="90">&frac12;</text>
+                            <text x="400" y="145">8ve</text>
+                        </g>
+                        <g class="fragment" data-fragment-index="2">
+                            <text x="516.66" y="90">&frac23;</text>
+                            <text x="516.66" y="145">5te</text>
+                        </g>
+                        <g class="fragment" data-fragment-index="3">
+                            <text x="575" y="90">&frac34;</text>
+                            <text x="575" y="145">4te</text>
+                        </g>
+
+
+                    </g>
+
+                </svg>
+                <aside class="notes">
+                    Démo : guitare <br>
+                    depuis antiquité, Pythagore , scientifiques travaillent sur la musique <br>
+                    Comment faire sonner les notes entre elles ? <br>
+                    Kaamelot: 4J 5J <br>
+                    Pb pour transposer <br>
+                    Résolu avec le système tempéré au XVIIe <br>
+                </aside>
+            </section>
+            <section>
+                <h3>Reconnaître les intervalles</h3>
+                <table class="reco">
+                    <thead>
+                    <tr>
+                        <td>Intervalle</td>
+                        <td>Tons</td>
+                        <td>Exemple</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2m</td>
+                        <td>&frac12;</td>
+                        <td class="fragment">
+                            Les dents de la mer / Lettre à Elise
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2M</td>
+                        <td>1</td>
+                        <td class="fragment">
+                            Joyeux anniversaire / Yesterday
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3m</td>
+                        <td>1&frac12;</td>
+                        <td class="fragment">
+                            Seven Nation Army / Hey Jude
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3M</td>
+                        <td>2</td>
+                        <td class="fragment">
+                            When the saints go marching in / 5e Symphonie de Beethoven
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4J</td>
+                        <td>2&frac12;</td>
+                        <td class="fragment">
+                            La Marseillaise / Super Mario
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4+</td>
+                        <td>3</td>
+                        <td class="fragment">
+                            Les Simpsons / Enter Sandman
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5J</td>
+                        <td>3&frac12;</td>
+                        <td class="fragment">
+                            Star Wars / Retour vers le futur
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6m</td>
+                        <td>4</td>
+                        <td class="fragment">
+                            L'arnaque / Love story
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6M</td>
+                        <td>4&frac12;</td>
+                        <td class="fragment">
+                            Comme d'habitude / Man in the mirror
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7m</td>
+                        <td>5</td>
+                        <td class="fragment">
+                            Star Trek / The winner takes it all
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7M</td>
+                        <td>5&frac12;</td>
+                        <td class="fragment">
+                            Take on me
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>6</td>
+                        <td class="fragment">
+                            Singin' in the rain / Bulls on Parade
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+
+                <h3>Accords</h3>
+                <p>Ensemble de notes (simultanément ou non)</p>
+                <div class="fragment">
+                    <div>
+                        Accord parfait et renversements:
+                        <div class="chords">
+                            <span>5</span>
+                            <span>3</span>
+                        </div>
+                        <div class="chords">
+                            <span>6</span>
+                            <span>3</span>
+                        </div>
+                        <div class="chords">
+                            <span>6</span>
+                            <span>4</span>
+                        </div>
+                    </div>
+                    <div>
+                        Exemple pour Do majeur:
+                        <div class="chords">
+                            <span>5 - sol</span>
+                            <span>3 - mi</span>
+                            <span>1 - do</span>
+                        </div>
+                        <div class="chords">
+                            <span>6 - do</span>
+                            <span>3 - sol</span>
+                            <span>1 - mi</span>
+                        </div>
+                        <div class="chords">
+                            <span>6 - mi</span>
+                            <span>4 - do</span>
+                            <span>1 - sol</span>
+                        </div>
+                    </div>
+                    <div>
+                        Exemple pour Do mineur:
+                        <div class="chords">
+                            <span>5 - sol</span>
+                            <span>3 - mi&#9837;</span>
+                            <span>1 - do</span>
+                        </div>
+                        <div class="chords">
+                            <span>6 - do</span>
+                            <span>3 - sol</span>
+                            <span>1 - mi&#9837;</span>
+                        </div>
+                        <div class="chords">
+                            <span>6 - mi&#9837;</span>
+                            <span>4 - do</span>
+                            <span>1 - sol</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Notation moderne</h3>
+                <ul>
+                    <li>
+                        C : Do majeur
+                    </li>
+                    <li>
+                        Cm : Do mineur
+                    </li>
+                    <li>
+                        C5 : Do avec uniquement la quinte (powerchord)
+                    </li>
+                    <li>
+                        Dsus4 : Ré majeur avec une quarte à la place de la tierce
+                    </li>
+                    <li>
+                        G7 : Sol avec 7ème mineure
+                    </li>
+                    <li>
+                        D/F&#9839; : Ré avec une basse en F&#9839;
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Gammes</h3>
+                <table class="gamme">
+                    <thead>
+                    <tr>
+                        <td colspan="15">Gamme majeure</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>&frac12;T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>&frac12;T</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="red">do</td>
+                        <td></td>
+                        <td>ré</td>
+                        <td></td>
+                        <td>mi</td>
+                        <td></td>
+                        <td>fa</td>
+                        <td></td>
+                        <td>sol</td>
+                        <td></td>
+                        <td>la</td>
+                        <td></td>
+                        <td>si</td>
+                        <td></td>
+                        <td>do</td>
+                    </tr>
+                    <tr>
+                        <td class="red">sol</td>
+                        <td></td>
+                        <td>la</td>
+                        <td></td>
+                        <td>si</td>
+                        <td></td>
+                        <td>do</td>
+                        <td></td>
+                        <td>ré</td>
+                        <td></td>
+                        <td>mi</td>
+                        <td></td>
+                        <td>fa&#9839;</td>
+                        <td></td>
+                        <td>sol</td>
+                    </tr>
+                    <tr>
+                        <td class="red">mi</td>
+                        <td></td>
+                        <td>fa&#9839;</td>
+                        <td></td>
+                        <td>sol&#9839;</td>
+                        <td></td>
+                        <td>la</td>
+                        <td></td>
+                        <td>si</td>
+                        <td></td>
+                        <td>do&#9839;</td>
+                        <td></td>
+                        <td>ré&#9839;</td>
+                        <td></td>
+                        <td>mi</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    musiqe tonale
+                </aside>
+            </section>
+            <section>
+                <table class="gamme">
+                <thead>
+                <tr>
+                    <td colspan="15">Gamme mineure</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td>1T</td>
+                    <td></td>
+                    <td>&frac12;T</td>
+                    <td></td>
+                    <td>1T</td>
+                    <td></td>
+                    <td>1T</td>
+                    <td></td>
+                    <td>&frac12;T</td>
+                    <td></td>
+                    <td>1T</td>
+                    <td></td>
+                    <td>1T</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="red">la</td>
+                    <td></td>
+                    <td>si</td>
+                    <td></td>
+                    <td>do</td>
+                    <td></td>
+                    <td>ré</td>
+                    <td></td>
+                    <td>mi</td>
+                    <td></td>
+                    <td>fa</td>
+                    <td></td>
+                    <td>sol</td>
+                    <td></td>
+                    <td>la</td>
+                </tr>
+                <tr>
+                    <td class="red">do</td>
+                    <td></td>
+                    <td>ré</td>
+                    <td></td>
+                    <td>mi&#9837;</td>
+                    <td></td>
+                    <td>fa</td>
+                    <td></td>
+                    <td>sol</td>
+                    <td></td>
+                    <td>la&#9837;</td>
+                    <td></td>
+                    <td>si&#9837;</td>
+                    <td></td>
+                    <td>do</td>
+                </tr>
+                </tbody>
+                </table>
+            </section>
+            <section>
+                <table class="gamme">
+                    <thead>
+                    <tr>
+                        <td colspan="15">Gamme pentatonique mineure</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td>1&frac12;T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>1&frac12;T</td>
+                        <td></td>
+                        <td>1T</td>
+                    </tr>
+                    <tr>
+                        <td class="red">mi</td>
+                        <td></td>
+                        <td>sol</td>
+                        <td></td>
+                        <td>la</td>
+                        <td></td>
+                        <td>si</td>
+                        <td></td>
+                        <td>ré</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="gamme">
+                    <thead>
+                    <tr>
+                        <td colspan="15">Gamme blues</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td>1&frac12;T</td>
+                        <td></td>
+                        <td>1T</td>
+                        <td></td>
+                        <td>&frac12;T</td>
+                        <td></td>
+                        <td>&frac12;T</td>
+                        <td></td>
+                        <td>1&frac12;T</td>
+                        <td></td>
+                        <td>1T</td>
+                    </tr>
+                    <tr>
+                        <td class="red">mi</td>
+                        <td></td>
+                        <td>sol</td>
+                        <td></td>
+                        <td>la</td>
+                        <td></td>
+                        <td>la&#9839;</td>
+                        <td></td>
+                        <td>si</td>
+                        <td></td>
+                        <td>ré</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    musique modale
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Degrés</h3>
+                <table class="degres">
+                    <tbody>
+                    <tr>
+                        <td>do</td>
+                        <td>ré</td>
+                        <td>mi</td>
+                        <td>fa</td>
+                        <td>sol</td>
+                        <td>la</td>
+                        <td>si</td>
+                    </tr>
+                    <tr>
+                        <td class="fragment highlight-green" data-fragment-index="1">I</td>
+                        <td>II</td>
+                        <td>III</td>
+                        <td class="fragment highlight-green" data-fragment-index="1">IV</td>
+                        <td class="fragment highlight-green" data-fragment-index="1">V</td>
+                        <td>VI</td>
+                        <td>VII</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fragment" data-fragment-index="2">
+                <p>I : Tonique</p>
+                <p>V : Dominante</p>
+                <p>IV : Sous-dominante</p>
+                </div>
+            </section>
+            <section>
+                <img src="assets/batman.jpg" alt="batman">
+                <div class="fragment degre degre-I">I</div>
+                <div class="fragment degre degre-V">V</div>
+                <div class="fragment degre degre-IV">IV</div>
+                <div class="fragment degre degre-VI">VI</div>
+            </section>
+        </section>
+        <section>
+            <h3>Les 4 accords</h3>
+            <div class="fragment">
+                <h4>I V vi IV</h4>
+                <div>Ex: C G Am F</div>
+            </div>
+            <aside class="notes">
+                <ul style="column-count: 2;">
+                    <li>No Women no cry</li>
+                    <li>Let it be</li>
+                    <li>Country Roads</li>
+                    <li>Under the Bridge</li>
+                    <li>Complicated</li>
+                    <li>Let it go</li>
+                    <li>Take on me</li>
+                    <li>Zombie</li>
+                    <li>Bullets with butterfly wings</li>
+                    <li>Save Tonight</li>
+                    <li>Aisha</li>
+                    <li>Kids</li>
+                    <li>Despacito</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <section>
+                <h3>Modulation</h3>
+                <aside class="notes">
+                    Morceau : 1 tonalité principale (utilisation de la gamme de la tonique)
+                    <br>
+                    Modulation : changement temporaire ou permanent de tonalité
+
+                </aside>
+            </section>
+            <section>
+                <h3>Tonalités voisines</h3>
+                <img class="wheel" src="assets/roue.svg" alt="roue tonalités">
+                <aside class="notes">
+                    Ex: One - U2 Am
+                    <br> Modulation refrain à  0:35 en C
+                    <br>
+                    Ex: Save me - Queen G
+                    <br> Modulation refrain à  0:50 en D
+
+                </aside>
+            </section>
+            <section>
+                <h3>Truck Driver's Gear Change</h3>
+                <p>
+                (ou modulation de l'arrangeur <br>
+                ou tonulation)
+                </p>
+                <p class="fragment">Stevie Wonder, Beatles, ABBA, John Williams,...</p>
+                <p class="fragment">+ &frac12; ou 1 ton en fin de morceau pour un effet épique</p>
+                <aside class="notes">
+                    Man in the mirror +1/2 (change) 2:52<br>
+                    I will always love you : +1 3:07 <br>
+                    My heart + 1 1/2 3:24<br>
+                    Heal the world: +1 +1 4:33 4:55 <br>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <h1>♪</h1>
+        </section>
+        <section id="credits">
+            <h2>Crédits</h2>
+
+            <ul>
+                <li><p>Gif FFT : https://commons.wikimedia.org/wiki/File:Fourier<em>transform</em>time<em>and</em>frequency<em>domains.gif
+                    https://commons.wikimedia.org/wiki/File:Fourier</em>synthesis<em>square</em>wave_animated.gif</p></li>
+
+                <li><p>Registre instruments : https://commons.wikimedia.org/wiki/File:Estensione<em>Strumenti</em>Musicale.jpg</p></li>
+
+                <li><p>Intervalles : https://www.earmaster.com/products/free-tools/interval-song-chart-generator.html</p></li>
+
+                <li><p>Reveal.js</p></li>
+
+                <li><p>https://github.com/rajgoel/reveal.js-plugins/tree/master/audio-slideshow</p></li>
+
+                <li><p>https://github.com/rajgoel/reveal.js-plugins/tree/master/anything</p></li>
+
+                <li><p>piano svg https://commons.wikimedia.org/wiki/File:PianoKeyboard.svg</p></li>
+
+                <li><p>Batman : https://www.flickr.com/photos/han<em>shot</em>first/with/36068178326/</p></li>
+
+                <li><p>http://tvtropes.org/pmwiki/pmwiki.php/Main/TheFourChordsOfPop</p></li>
+
+                <li><p>https://commons.wikimedia.org/wiki/File:Melcul<em>tonalitatilor</em>-_lasido.svg</p></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="lib/externals/wavesurfer.min.js"></script>
+<script src="lib/externals/rythm.min.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        controls: true,
+        //progress: true,
+        history: true,
+        //center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        dependencies: [
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                },
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                },
+            },
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                },
+            },
+            {
+                src: 'plugin/audio-slideshow/audio-slideshow.js', condition: function () {
+                    return !!document.body.classList;
+                },
+            },
+        ],
+        audio: {
+            prefix: 'assets/', 	// audio files are stored in the "audio" folder
+            suffix: '.mp3',
+            advance: -1,
+            playerOpacity: 0.02,	// opacity value of audio player if unfocused
+            playerStyle: 'position: fixed; bottom: 120px; right: -30px; width: 20%; height:50px; z-index: 33;', // style used for container of audio controls
+            startAtFragment: true, // when moving to a slide, start at the current fragment or at the start of the slide
+        },
+    });
+
+    // Wavesurfer
+
+    // #1 SimpleWave
+    const simpleWave = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: 'violet',
+        progressColor: 'purple',
+        height: '300',
+    });
+
+    simpleWave.load('assets/plucked-bass.mp3');
+
+    const playBtn = document.querySelector('#waveform');
+    playBtn.onclick = () => simpleWave.play(0);
+    const slider = document.querySelector('#slider');
+
+    slider.oninput = () => {
+        const zoomLevel = Number(slider.value);
+        simpleWave.zoom(zoomLevel);
+    };
+
+
+    // Events fragments
+    Reveal.addEventListener('fragmentshown', function (event) {
+        //console.log(event.fragment);
+        switch (event.fragment.id) {
+            case 'waveform1':
+                slider.value = 1;
+                simpleWave.zoom(1);
+                simpleWave.play(0);
+                break;
+            case 'waveform2':
+                simpleWave.stop();
+                slider.value = 4000;
+                simpleWave.zoom(4000);
+                break;
+            default:
+            //console.log(event.fragment.id);
+        }
+
+    });
+    Reveal.addEventListener('fragmenthidden', function (event) {
+        //console.log(event.fragment);
+        switch (event.fragment.id) {
+            case 'waveform1':
+                simpleWave.zoom(1);
+                simpleWave.play(0);
+                break;
+            case 'waveform2':
+                simpleWave.play(0);
+                break;
+            default:
+            // console.log(event.fragment.id);
+        }
+
+    });
+
+    // Rythm.js
+    const rythm = new Rythm();
+
+    Reveal.addEventListener( 'rythmOn', () => {
+
+        // pour #audioplayer-4.0
+        // const audio24 = document.querySelector('#audioplayer-\\34\\.\\30');
+        // console.log('rythm connected', audio24);
+        //rythm.connectExternalAudioElement(audio24);
+        rythm.setMusic('assets/4.0.mp3');
+        rythm.start();
+        rythm.addRythm('rythm24', 'jump', 0, 30);
+
+        //rythm.addRythm('rythm24', 'jump', 0, 30);
+    }, false );
+    Reveal.addEventListener( 'rythmOff', () => {
+        rythm.stop();
+    }, false );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+.align-left {
+    text-align: left;
+}
+
+.red {
+    color: red;
+}
+
+.reveal table th, .reveal table td {
+    border-color:  white;
+}
+
+table tbody tr:not(:first-child) {
+    border-top: 2px solid white;
+}
+
+div.subtitle {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+span.rythm {
+    display: inline-block;
+}
+
+/*
+Zoom Slider #1
+*/
+.zoom-slide {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+}
+
+.zoom-slide .minus {
+    flex: 1 auto;
+}
+
+.zoom-slide .slider {
+    flex: 10 auto;
+}
+
+.zoom-slide .plus {
+    flex: 1 auto;
+}
+
+/*
+Timbre
+ */
+.timbre {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.timbre img.wave {
+    width: 470px;
+    height: 108px;
+}
+.timbre .desc {
+    width: 20rem;
+    align-self: center;
+}
+
+/*
+Echelle
+ */
+table.echelle tr td {
+    font-size: 2rem;
+}
+
+/*
+Piano
+ */
+svg#piano-keyboard g.white rect{
+    fill:white;stroke:black
+}
+svg#piano-keyboard g.black rect{
+    fill:black;stroke:black
+}
+svg#piano-keyboard g.white text{
+    font-size: 2rem;
+    fill: black;
+}
+svg#piano-keyboard g.black text{
+    font-size: 2rem;
+    fill: white;
+}
+
+/*
+Intervalles
+ */
+
+table.intervalles tr td {
+    font-size: 1.5rem;
+    text-align: center;
+}
+table.intervalles tr th {
+    font-size: 1.6rem;
+    text-align: center;
+}
+.string-line line{
+    stroke: yellow;
+    stroke-width: 2px;
+}
+#string .annotations {
+    font-size: 2rem;
+    fill: darkorange;
+    text-anchor: middle;
+}
+table.reco {
+    font-size: 1.5rem;
+}
+
+/*
+Accords
+ */
+div.chords {
+    display: inline-block;
+    padding: 0 1rem;
+}
+div.chords span {
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    display: block;
+}
+
+/*
+Gamme
+*/
+table.gamme tr td {
+    font-size: 1.5rem;
+}
+
+/*
+Degrés
+ */
+table.degres tr td {
+    text-align: center;
+}
+
+div.degre {
+    position: relative;
+    font-size: 5rem;
+    color: yellow;
+}
+
+div.degre.degre-I {
+    top: -350px;
+    left: 10px;
+}
+div.degre.degre-V {
+    top: calc(-350px - 5rem);
+    left: -223px;
+}
+div.degre.degre-IV {
+    top: calc(-350px - 11rem);
+    left: -110px;
+}
+div.degre.degre-VI {
+    top: calc(-350px - 18rem);
+    left: 114px;
+}
+
+section img.wheel {
+    background-color: white;
+}
+
+section#credits ul {
+    font-size: 1.5rem;
+    width: 120%;
+}
