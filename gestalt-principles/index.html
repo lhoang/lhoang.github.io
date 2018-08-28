@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gestalt Principles</title>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--<script src="offline/d3.v5.min.js"></script>-->
+    <script src="js/gestalt.js"></script>
+    <script src="lib/graph-scroll.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="css/scroll.css" rel="stylesheet" type="text/css"/>
+    <link href="css/gestalt.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="slide">
+    <h1>Gestalt Principles for Dataviz</h1>
+    <p>Scroll down ⇓</p>
+</div>
+<div class="slide">
+    <div class="quote">The whole is something else than the sum of its parts.</div>
+    <div class="author">K. Koffka</div>
+</div>
+<div id="container1" class="container">
+    <div class="graph"></div>
+    <div class="sections">
+        <div class="trigger">
+        </div>
+        <div class="trigger">
+            <h3>Proximity</h3>
+        </div>
+        <div class="trigger">
+            <h3>Similarity</h3>
+        </div>
+        <div class="trigger">
+            <h3>Connectivity</h3>
+        </div>
+        <div class="trigger">
+            <h3>Common Destiny</h3>
+        </div>
+    </div>
+</div>
+<div id="container2" class="container">
+    <div class="graph"></div>
+    <div class="sections">
+        <div class="trigger halfstep">
+            <h3>Closure 1</h3>
+        </div>
+        <div class="trigger halfstep">
+            <h3>Closure 2</h3>
+        </div>
+        <div class="trigger">
+            <h3>Continuity</h3>
+        </div>
+    </div>
+</div>
+<script>
+    function graphscroll() {
+
+        // viewport height
+        const viewportHeight = window.innerHeight;
+        const halfViewportHeight = viewportHeight / 2;
+
+        const main = new Gestalt({width: 500, height: 500});
+
+        // Part 1
+        d3.graphScroll()
+            .container(d3.select('#container1'))
+            .graph(d3.select('#container1 .graph'))
+            .eventId('part1')
+            .sections(d3.selectAll('#container1 .trigger'))
+            .offset(-100)
+            .on('active', i => {
+                switch (i) {
+                    case 0:
+                        main.init();
+                        break;
+                    case 1:
+                        main.proximity();
+                        break;
+                    case 2:
+                        main.similarity();
+                        break;
+                    case 3:
+                        main.connectivity();
+                        break;
+                    case 4:
+                        main.commonDestiny();
+                        break;
+                    default:
+                        main.display(i);
+                }
+            });
+        // Part 2
+        d3.graphScroll()
+            .container(d3.select('#container2'))
+            .graph(d3.select('#container2 .graph'))
+            .eventId('part2')
+            .sections(d3.selectAll('#container2 .trigger'))
+            .offset(-100)
+            .on('active', i => {
+                switch (i) {
+                    case 0:
+                        main.closure1();
+                        break;
+                    case 1:
+                        main.closure2();
+                        break;
+                    case 2:
+                        main.continuity();
+                        break;
+                    default:
+                        main.display(i);
+                }
+            });
+    }
+
+    graphscroll();
+</script>
+</body>
+
+</html>

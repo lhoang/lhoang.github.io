@@ -1,0 +1,36 @@
+.circle circle{
+    /*fill: rgb(31, 119, 180);*/
+    fill-opacity: .25;
+    stroke: rgb(31, 119, 180);
+    stroke-width: 1px;
+}
+
+text {
+    font: 15px sans-serif;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.line-hover {
+    stroke: steelblue;
+    stroke-width: 8px;
+}
+
+line.link {
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+
+text.destiny {
+    stroke: black;
+    stroke-width: 2px;
+}
+
+circle.arrow {
+    background:
+            linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,
+            linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),
+            linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px);
+    background-color:#e1ebbd;
+    background-size: 128px 128px;
+}

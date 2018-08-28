@@ -1,0 +1,64 @@
+body {
+    background-color: #b30c37;
+    color: white;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+}
+
+.container {
+    position: relative;
+    background-color: #fff;
+}
+
+.sections {
+    width: 30vw;
+    padding-left: 20vw;
+    color: black;
+}
+.trigger {
+    background: white;
+    opacity: .2;
+    margin-bottom: 200px;
+    /*height: 300px;*/
+    height: 100vh;
+}
+
+.trigger.halfstep {
+    height : 50vh;
+}
+
+.sections > .trigger:last-child{
+    margin-bottom: 30px;
+}
+.sections > div.graph-scroll-active{
+    opacity: 1;
+}
+.graph{
+    width: 500px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin-left: 50vw;
+    transform: translate3d(0, 0, 0);
+    height: 520px;
+}
+.graph svg {
+    /*border: 1px dashed black;*/
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+.slide {
+    text-align: center;
+    height: 900px;
+    font-size: 4rem;
+    padding-left: 4rem;
+}
+.slide h1 {
+    font-size: 6rem;
+    padding-top: 30vh;
+}
+
+.sections h3{
+    font-size: 2rem;
+}
