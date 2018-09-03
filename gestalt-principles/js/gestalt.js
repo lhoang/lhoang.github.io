@@ -79,7 +79,6 @@ class Gestalt {
         if (this.simulation) {
             this.simulation.stop();
         }
-        ;
         d3.selectAll('#container1 .link').remove();
 
         // Join
@@ -87,6 +86,11 @@ class Gestalt {
             .selectAll('.circle')
             .data(this.data);
         const t = d3.transition().duration(2000);
+
+        d3.selectAll('.region')
+            .transition(t)
+            .attr('stroke-width', 0)
+            .remove();
 
         circles.on('mousedown.drag', null);
 
@@ -113,13 +117,42 @@ class Gestalt {
             .attr('y', (d, i) => this.offsetY + Math.floor(i / 4) * this.interval)
             .append('circle')
             .attr('r', 0)
-            //.attr('cx', (d, i) => this.offsetX + (i % 4) * this.interval)
-            //.attr('cy', (d, i) => this.offsetY + Math.floor(i / 4) * this.interval)
-            //.attr('class', 'circle')
             .attr('fill', 'rgb(31, 119, 180)')
             .attr('transform', null)
             .transition(t)
             .attr('r', this.radius);
+    }
+
+    /**
+     * Common Region.
+     */
+    region() {
+        this.init();
+
+        function addRect(x, y, nWidth, nHeight) {
+            d3.select('#container1 svg')
+                .append('rect')
+                .classed('region', true)
+                .attr('x', this.offsetX / 2 + this.interval * x)
+                .attr('y', this.offsetY / 2+  this.interval * y)
+                .attr('width', this.interval * nWidth)
+                .attr('height', this.interval * nHeight)
+                .attr('rx', 15)
+                .attr('ry', 15)
+                .attr('stroke', 'black')
+                .attr('fill', 'none')
+                .attr('stroke-width', 0);
+        }
+
+        addRect.call(this, 0, 0, 3, 1);
+        addRect.call(this, 0, 2, 4, 2);
+        addRect.call(this, 3, 0, 1, 2);
+        addRect.call(this, 0, 1, 3, 1);
+
+        const t = d3.transition().duration(2000);
+        d3.selectAll('#container1 .region').transition(t)
+            .attr('stroke-width', 2);
+
     }
 
     /**
@@ -129,6 +162,11 @@ class Gestalt {
         const newInterval = this.interval * 0.8;
         const divide = this.interval;
         const t = d3.transition().duration(2000);
+
+        d3.selectAll('.region')
+            .transition(t)
+            .attr('stroke-width', 0)
+            .remove();
 
         const circles = d3.select('#container1 .circles')
             .selectAll('.circle');

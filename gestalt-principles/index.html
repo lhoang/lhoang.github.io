@@ -28,6 +28,9 @@
         <div class="trigger">
         </div>
         <div class="trigger">
+            <h3>Common Region</h3>
+        </div>
+        <div class="trigger">
             <h3>Proximity</h3>
         </div>
         <div class="trigger">
@@ -77,15 +80,18 @@
                         main.init();
                         break;
                     case 1:
-                        main.proximity();
+                        main.region();
                         break;
                     case 2:
-                        main.similarity();
+                        main.proximity();
                         break;
                     case 3:
-                        main.connectivity();
+                        main.similarity();
                         break;
                     case 4:
+                        main.connectivity();
+                        break;
+                    case 5:
                         main.commonDestiny();
                         break;
                     default:
