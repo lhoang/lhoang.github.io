@@ -1,0 +1,264 @@
+:root {
+    --zenika-red: rgb(178, 30, 62);
+}
+
+.reveal pre.small, .reveal pre.css-snippet  {
+    font-size: 1.1rem;
+}
+.reveal pre.small code, .reveal pre.css-snippet code {
+    max-height: 85vh;
+}
+.two-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.column {
+    flex:1;
+    max-width: 45vw;
+}
+.column pre.css-snippet code {
+    /*max-width: 20vw;*/
+}
+.reveal table.chart {
+    font-size: 1rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    caption-side: top;
+    empty-cells: hide;
+    font-feature-settings: "tnum";
+}
+
+.reveal table.chart-big {
+    font-size: 2rem;
+}
+
+
+/* Demo */
+table.chart tbody tr.effectif td span {
+    font-weight: bolder;
+    color: #eeeeee;
+    font-size: 0.9rem;
+}
+table.chart thead {
+    grid-area: xAxis;
+}
+table.chart thead tr {
+    display: grid;
+}
+table.chart thead tr th {
+    display: flex;
+    grid-row: -2/span 1;
+    justify-content: center;
+    border-bottom: none;
+    padding: 5px;
+}
+table.chart caption {
+    grid-area: title;
+}
+table.chart th.headername {
+    display: none;
+}
+table.chart tbody {
+    height: inherit;
+}
+
+
+.chart-part2,
+.chart-part3,
+.chart-part4 {
+    --height: 280px;
+    height: var(--height);
+    width: 550px;
+    display: grid;
+    grid-template-areas: "content"
+    "xAxis"
+    "title";
+    position: relative;
+}
+
+table.chart tr.ca {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 0.9rem;
+    --offset-bottom: 0px;
+    --bottom: calc(100% - var(--height));
+    --ca-height: var(--height);
+}
+table.chart tr.ca::before {
+    grid-area: content;
+    content: "";
+}
+table.chart tr.ca td {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    padding: 5px;
+    position: relative;
+    --top: calc(var(--ca-height) - (var(--value) / var(--yCa) * var(--ca-height)));
+}
+
+table.chart-part3 tbody tr.effectif,
+table.chart-part4 tbody tr.effectif {
+    grid-area: content;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: repeat(var(--yEffectif), 1fr);
+    grid-column-gap: 5px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    --line-every: 50;
+    background-image: linear-gradient(to bottom, #ccc 1px, transparent 1px);
+    background-size: 100% calc(100% / var(--yEffectif) * var(--line-every));
+}
+table.chart-part3 tbody tr.effectif td,
+table.chart-part4 tbody tr.effectif td {
+    --start: calc(var(--yEffectif) + 1 - var(--value));
+    grid-row-start: var(--start);
+    grid-row-end: -1;
+    background-color: var(--zenika-red);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+table.chart-part4 tr.ca::before {
+    content: "";
+    --bottom: calc(100% - var(--height));
+    --offset: calc((100% / var(--x)) / 2);
+    position: absolute;
+    top: 0;
+    bottom: var(--bottom);
+    width: 100%;
+    z-index: 3;
+}
+
+
+
+
+/* Final */
+.reveal table {
+    font-size: 1rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    caption-side: top;
+    empty-cells: hide;
+    font-feature-settings: "tnum";
+}
+
+table.chart-final {
+    --height: 60vh;
+    height: var(--height);
+    width: 40vw;
+    display: grid;
+    grid-template-areas: "content" "xAxis" "title";
+    position: relative;
+}
+
+table.chart-final caption {
+    grid-area: title;
+}
+table.chart-final th.headername {
+    display: none;
+}
+table.chart-final tbody {
+    height: inherit;
+}
+table.chart-final tbody tr.effectif {
+    grid-area: content;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: repeat(var(--yEffectif), 1fr);
+    grid-column-gap: 5px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    --line-every: 50;
+    background-image: linear-gradient(to bottom, #ccc 1px, transparent 1px);
+    background-size: 100% calc(100% / var(--yEffectif) * var(--line-every));
+}
+table.chart-final tbody tr.effectif td {
+    --start: calc(var(--yEffectif) + 1 - var(--value));
+    grid-row-start: var(--start);
+    grid-row-end: -1;
+    background-color: var(--zenika-red);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+table.chart-final tbody tr.effectif td:hover {
+    transform: scale(1.05);
+    filter: invert(100%);
+    cursor: pointer;
+}
+table.chart-final tbody tr.effectif td span {
+    font-weight: bolder;
+    color: #eeeeee;
+    font-size: 0.9rem;
+}
+table.chart-final thead {
+    grid-area: xAxis;
+}
+table.chart-final thead tr {
+    display: grid;
+}
+table.chart-final thead tr th {
+    display: flex;
+    grid-row: -2/span 1;
+    justify-content: center;
+    border-bottom: none;
+    padding: 5px;
+}
+table.chart-final tr.ca {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 0.9rem;
+    --offset-bottom: 0px;
+    --bottom: calc(100% - var(--height));
+    --ca-height: var(--height);
+}
+table.chart-final tr.ca::before {
+    grid-area: content;
+    content: "";
+    --line-width: 4px;
+    --offset: calc((100% / var(--x)) / 2);
+    background-color: var(--color);
+    -webkit-clip-path: polygon(var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%)), calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%)), calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%)), calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%)), calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%)), calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%)), calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%)), calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%) + var(--line-width)), var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%) + var(--line-width)));
+    clip-path: polygon(var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%)), calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%)), calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%)), calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%)), calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%)), calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%)), calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%)), calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%) + var(--line-width)), calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%) + var(--line-width)), var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%) + var(--line-width)));
+    position: absolute;
+    top: 0;
+    bottom: var(--bottom);
+    width: 100%;
+    z-index: 3;
+}
+table.chart-final tr.ca td {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    padding: 5px;
+    position: relative;
+    --top: calc(var(--ca-height) - (var(--value) / var(--yCa) * var(--ca-height)));
+}
+table.chart-final tr.ca td::before {
+    --size: 0.6rem;
+    background-color: #cccccc;
+    border: 2px solid var(--color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    content: "";
+    height: var(--size);
+    position: absolute;
+    top: var(--top);
+    transform: translate3d(0, calc(var(--size) / -2), 0);
+    width: var(--size);
+    z-index: 4;
+}
+table.chart-final tr.ca td span {
+    position: absolute;
+    top: calc(var(--top) - 2rem);
+    z-index: 5;
+}

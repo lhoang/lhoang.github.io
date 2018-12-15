@@ -1,0 +1,618 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/solarized-light.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/switch.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Des dataviz en CSS</h1>
+					<p>ou comment hacker son table pour rendre ses données accessibles</p>
+				</section>
+				<section>
+					<p>
+						<img src="assets/Evolution_Zenika.png" alt="Evolution Zenika" style="width: 24rem;">
+					</p>
+					<p>
+						<a href="https://www.zenika.com/evolution">https://www.zenika.com/evolution</a>
+					</p>
+				</section>
+				<section>
+					<p>
+					<pre class="small"><code data-trim>
+					&lt;table class=&quot;chart&quot;&gt;
+						&lt;caption&gt;Chiffre d'affaire et effectif de Zenika&lt;/caption&gt;
+						&lt;thead&gt;
+						&lt;tr&gt;
+							&lt;th class=&quot;headername&quot; scope=&quot;row&quot;&gt;Ann&eacute;e&lt;/th&gt;
+							&lt;th&gt;2011&lt;/th&gt;
+					        ...
+							&lt;th&gt;2017&lt;/th&gt;
+						&lt;/tr&gt;
+						&lt;/thead&gt;
+						&lt;tbody&gt;
+						&lt;tr class=&quot;effectif&quot;&gt;
+							&lt;th class=&quot;headername&quot;scope=&quot;row&quot;&gt;Effectif&lt;/th&gt;
+							&lt;td&gt;&lt;span&gt;54&lt;/span&gt;&lt;/td&gt;
+							...
+							&lt;td&gt;&lt;span&gt;332&lt;/span&gt;&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr class=&quot;ca&quot;&gt;
+							&lt;th class=&quot;headername&quot;scope=&quot;row&quot;&gt;CA&lt;/th&gt;
+							&lt;td&gt;&lt;span&gt;4.5 M&euro;&lt;/span&gt;&lt;/td&gt;
+							...
+							&lt;td&gt;&lt;span&gt;30 M&euro;&lt;/span&gt;&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;/tbody&gt;
+					&lt;/table&gt;
+					</code></pre>
+					</p>
+				</section>
+				<section>
+					<table class="chart-big">
+						<caption>Chiffre d'affaire et effectif de Zenika</caption>
+						<thead>
+						<tr>
+							<th class="headername" scope="row">Année</th>
+							<th scope="col">2011</th>
+							<th scope="col">2012</th>
+							<th scope="col">2013</th>
+							<th scope="col">2014</th>
+							<th scope="col">2015</th>
+							<th scope="col">2016</th>
+							<th scope="col">2017</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr class="effectif">
+							<th class="headername" scope="row">Effectif</th>
+							<td><span>54</span></td>
+							<td><span>85</span></td>
+							<td><span>112</span></td>
+							<td><span>142</span></td>
+							<td><span>188</span></td>
+							<td><span>257</span></td>
+							<td><span>332</span></td>
+						</tr>
+						<tr class="ca">
+							<th class="headername" scope="row">CA</th>
+							<td><span>4.5 M€</span></td>
+							<td><span>7 M€</span></td>
+							<td><span>9.5 M€</span></td>
+							<td><span>12 M€</span></td>
+							<td><span>14.7 M€</span></td>
+							<td><span>21.9 M€</span></td>
+							<td><span>30 M€</span></td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section id="table-part1">
+					<div class="two-columns">
+						<div class="code column">
+						</div>
+						<div class="column">
+							<table class="chart chart-part1">
+								<caption>Chiffre d'affaire et effectif de Zenika</caption>
+								<thead>
+								<tr>
+									<th class="headername" scope="row">Année</th>
+									<th scope="col">2011</th>
+									<th scope="col">2012</th>
+									<th scope="col">2013</th>
+									<th scope="col">2014</th>
+									<th scope="col">2015</th>
+									<th scope="col">2016</th>
+									<th scope="col">2017</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="effectif">
+									<th class="headername" scope="row">Effectif</th>
+									<td><span>54</span></td>
+									<td><span>85</span></td>
+									<td><span>112</span></td>
+									<td><span>142</span></td>
+									<td><span>188</span></td>
+									<td><span>257</span></td>
+									<td><span>332</span></td>
+								</tr>
+								<tr class="ca">
+									<th class="headername" scope="row">CA</th>
+									<td><span>4.5 M€</span></td>
+									<td><span>7 M€</span></td>
+									<td><span>9.5 M€</span></td>
+									<td><span>12 M€</span></td>
+									<td><span>14.7 M€</span></td>
+									<td><span>21.9 M€</span></td>
+									<td><span>30 M€</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<aside class="notes">
+						background-color
+						grid-row-start / end
+					</aside>
+				</section>
+				<section>
+					<h2>CSS Custom Properties</h2>
+					<pre class="small"><code data-trim>
+					:root {
+						--zenika-red: rgb(178, 30, 62);
+					}
+					color : var(--zenika-red);
+					</code></pre>
+					<pre class="small"><code data-trim data-noescape>
+&lt;table class=&quot;chart&quot; <mark>style=&quot;--yEffectif: 450; --x:7&quot;</mark>&gt;
+    ...
+    &lt;tbody&gt;
+    &lt;tr class=&quot;effectif&quot;&gt;
+        &lt;th class=&quot;headername&quot;&gt;Effectif&lt;/th&gt;
+        &lt;td <mark>style=&quot;--value: 54&quot;&gt;</mark>&lt;span&gt;54&lt;/span&gt;&lt;/td&gt;
+        &lt;td <mark>style=&quot;--value: 85&quot;&gt;</mark>&lt;span&gt;85&lt;/span&gt;&lt;/td&gt;
+        &lt;td <mark>style=&quot;--value: 122&quot;&gt;</mark>&lt;span&gt;112&lt;/span&gt;&lt;/td&gt;
+        &lt;td <mark>style=&quot;--value: 142&quot;&gt;</mark>&lt;span&gt;142&lt;/span&gt;&lt;/td&gt;
+        &lt;td <mark>style=&quot;--value: 188&quot;&gt;</mark>&lt;span&gt;188&lt;/span&gt;&lt;/td&gt;
+        &lt;td <mark>style=&quot;--value: 257&quot;&gt;</mark>&lt;span&gt;257&lt;/span&gt;&lt;/td&gt;
+        &lt;td <mark>style=&quot;--value: 332&quot;&gt;</mark>&lt;span&gt;332&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+   ...
+    &lt;/tbody&gt;
+&lt;/table&gt;
+					</code></pre>
+				</section>
+				<section id="table-part2">
+					<div class="two-columns">
+						<div class="code column">
+						</div>
+						<div class="column">
+							<table class="chart chart-part2" style="--yEffectif: 450; --yCa: 35; --x:7">
+								<caption>Chiffre d'affaire et effectif de Zenika</caption>
+								<thead>
+								<tr>
+									<th class="headername" scope="row">Année</th>
+									<th scope="col">2011</th>
+									<th scope="col">2012</th>
+									<th scope="col">2013</th>
+									<th scope="col">2014</th>
+									<th scope="col">2015</th>
+									<th scope="col">2016</th>
+									<th scope="col">2017</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="effectif">
+									<th class="headername" scope="row">Effectif</th>
+									<td style="--value: 54"><span>54</span></td>
+									<td style="--value: 85"><span>85</span></td>
+									<td style="--value: 122"><span>112</span></td>
+									<td style="--value: 142"><span>142</span></td>
+									<td style="--value: 188"><span>188</span></td>
+									<td style="--value: 257"><span>257</span></td>
+									<td style="--value: 332"><span>332</span></td>
+								</tr>
+								<tr class="ca" style="--color: rgba(60,63,65,.8); --1: 4.5; --2: 7; --3: 9.5; --4: 12; --5: 14.7; --6: 21.9; --7: 30;">
+									<th class="headername" scope="row"><abbr title="Chiffre d'affaire">CA</abbr></th>
+									<td style="--value: 4.5"><span>4.5 M€</span></td>
+									<td style="--value: 7"><span>7 M€</span></td>
+									<td style="--value: 9.5"><span>9.5 M€</span></td>
+									<td style="--value: 12"><span>12 M€</span></td>
+									<td style="--value: 14.7"><span>14.7 M€</span></td>
+									<td style="--value: 21.9"><span>21.9 M€</span></td>
+									<td style="--value: 30"><span>30 M€</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<aside class="notes">
+						grid-template-rows
+						grid-row-start
+						background
+					</aside>
+				</section>
+				<section>
+					<h2>Clip-path</h2>
+					<pre class="small css"><code data-trim>
+					clip-path: polygon(x0 y0, x1 y1, ..., xn yn);
+					-webkit-clip-path: ...
+					</code></pre>
+					<pre class="small"><code data-trim data-noescape>
+&lt;table class=&quot;chart&quot; style=&quot;--yEffectif: 450; --yCa: 35; --x:7&quot;&gt;
+   ...
+    &lt;tbody&gt;
+    &lt;tr class=&quot;ca&quot; <mark>style=&quot;--1: 4.5; --2: 7; --3: 9.5; --4: 12; --5: 14.7; --6: 21.9; --7: 30;&quot;</mark>&gt;
+        &lt;th class=&quot;headername&quot;&gt;CA&lt;/th&gt;
+        &lt;td style=&quot;--value: 4.5&quot;&gt;&lt;span&gt;4.5 M&euro;&lt;/span&gt;&lt;/td&gt;
+        ....
+        &lt;td style=&quot;--value: 30&quot;&gt;&lt;span&gt;30 M&euro;&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+					</code></pre>
+					<pre class="small css"><code data-trim>
+					clip-path: polygon(var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%)),
+					  calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%)),
+					  ...
+					  calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%)),
+					  100% 100%,
+					  0 100%);
+					-webkit-clip-path: ...
+					</code></pre>
+				</section>
+				<section id="table-part3">
+					<div class="two-columns">
+						<div class="code column">
+						</div>
+						<div class="column">
+							<table class="chart chart-part3" style="--yEffectif: 450; --yCa: 35; --x:7">
+								<caption>Chiffre d'affaire et effectif de Zenika</caption>
+								<thead>
+								<tr>
+									<th class="headername" scope="row">Année</th>
+									<th scope="col">2011</th>
+									<th scope="col">2012</th>
+									<th scope="col">2013</th>
+									<th scope="col">2014</th>
+									<th scope="col">2015</th>
+									<th scope="col">2016</th>
+									<th scope="col">2017</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="effectif">
+									<th class="headername" scope="row">Effectif</th>
+									<td style="--value: 54"><span>54</span></td>
+									<td style="--value: 85"><span>85</span></td>
+									<td style="--value: 122"><span>112</span></td>
+									<td style="--value: 142"><span>142</span></td>
+									<td style="--value: 188"><span>188</span></td>
+									<td style="--value: 257"><span>257</span></td>
+									<td style="--value: 332"><span>332</span></td>
+								</tr>
+								<tr class="ca" style="--color: rgba(60,63,65,.8); --1: 4.5; --2: 7; --3: 9.5; --4: 12; --5: 14.7; --6: 21.9; --7: 30;">
+									<th class="headername" scope="row"><abbr title="Chiffre d'affaire">CA</abbr></th>
+									<td style="--value: 4.5"><span>4.5 M€</span></td>
+									<td style="--value: 7"><span>7 M€</span></td>
+									<td style="--value: 9.5"><span>9.5 M€</span></td>
+									<td style="--value: 12"><span>12 M€</span></td>
+									<td style="--value: 14.7"><span>14.7 M€</span></td>
+									<td style="--value: 21.9"><span>21.9 M€</span></td>
+									<td style="--value: 30"><span>30 M€</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section id="table-part4">
+					<div class="two-columns">
+						<div class="code column">
+						</div>
+						<div class="column">
+							<table class="chart chart-part4" style="--yEffectif: 450; --yCa: 35; --x:7">
+								<caption>Chiffre d'affaire et effectif de Zenika</caption>
+								<thead>
+								<tr>
+									<th class="headername" scope="row">Année</th>
+									<th scope="col">2011</th>
+									<th scope="col">2012</th>
+									<th scope="col">2013</th>
+									<th scope="col">2014</th>
+									<th scope="col">2015</th>
+									<th scope="col">2016</th>
+									<th scope="col">2017</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="effectif">
+									<th class="headername" scope="row">Effectif</th>
+									<td style="--value: 54"><span>54</span></td>
+									<td style="--value: 85"><span>85</span></td>
+									<td style="--value: 122"><span>112</span></td>
+									<td style="--value: 142"><span>142</span></td>
+									<td style="--value: 188"><span>188</span></td>
+									<td style="--value: 257"><span>257</span></td>
+									<td style="--value: 332"><span>332</span></td>
+								</tr>
+								<tr class="ca" style="--color: rgba(60,63,65,.8); --1: 4.5; --2: 7; --3: 9.5; --4: 12; --5: 14.7; --6: 21.9; --7: 30;">
+									<th class="headername" scope="row"><abbr title="Chiffre d'affaire">CA</abbr></th>
+									<td style="--value: 4.5"><span>4.5 M€</span></td>
+									<td style="--value: 7"><span>7 M€</span></td>
+									<td style="--value: 9.5"><span>9.5 M€</span></td>
+									<td style="--value: 12"><span>12 M€</span></td>
+									<td style="--value: 14.7"><span>14.7 M€</span></td>
+									<td style="--value: 21.9"><span>21.9 M€</span></td>
+									<td style="--value: 30"><span>30 M€</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section id="table-final">
+					<div class="container switch">
+						<span id="label-switch">CSS Switch</span>
+						<span id="desc-switch">Désactivation des styles</span>
+						<button type="button" class="disable-css" role="switch" aria-checked="true" aria-labelledby="label-switch" aria-describedby="desc-switch">
+							<span>Stylé</span>
+							<span>Sobre</span>
+						</button>
+					</div>
+					<div class="container">
+						<table class="chart-final" style="--yEffectif: 450; --yCa: 35; --x:7">
+							<caption>Chiffre d'affaire et effectif de Zenika</caption>
+							<thead>
+							<tr>
+								<th class="headername" scope="row">Année</th>
+								<th scope="col">2011</th>
+								<th scope="col">2012</th>
+								<th scope="col">2013</th>
+								<th scope="col">2014</th>
+								<th scope="col">2015</th>
+								<th scope="col">2016</th>
+								<th scope="col">2017</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr class="effectif">
+								<th class="headername" scope="row">Effectif</th>
+								<td style="--value: 54"><span>54</span></td>
+								<td style="--value: 85"><span>85</span></td>
+								<td style="--value: 122"><span>112</span></td>
+								<td style="--value: 142"><span>142</span></td>
+								<td style="--value: 188"><span>188</span></td>
+								<td style="--value: 257"><span>257</span></td>
+								<td style="--value: 332"><span>332</span></td>
+							</tr>
+							<tr class="ca" style="--color: rgba(60,63,65,.8); --1: 4.5; --2: 7; --3: 9.5; --4: 12; --5: 14.7; --6: 21.9; --7: 30;">
+								<th class="headername" scope="row"><abbr title="Chiffre d'affaire">CA</abbr></th>
+								<td style="--value: 4.5"><span>4.5 M€</span></td>
+								<td style="--value: 7"><span>7 M€</span></td>
+								<td style="--value: 9.5"><span>9.5 M€</span></td>
+								<td style="--value: 12"><span>12 M€</span></td>
+								<td style="--value: 14.7"><span>14.7 M€</span></td>
+								<td style="--value: 21.9"><span>21.9 M€</span></td>
+								<td style="--value: 30"><span>30 M€</span></td>
+							</tr>
+							</tbody>
+						</table>
+					<aside class="notes">
+
+					</aside>
+					</div>
+				</section>
+				<section>
+					<h2>Sources</h2>
+					<ul>
+						<li>
+							Gaël Poupard, <strong>@ffoodd_fr</strong> - Conférence Paris Web 2018<br>
+							<a href="https://www.paris-web.fr/2018/conferences/la-donnee-graphique-avec-html-et-css.php">
+								https://www.paris-web.fr/2018/conferences/la-donnee-graphique-avec-html-et-css.php
+							</a><br>
+							<a href="https://ffoodd.github.io/sseeeedd/graphiques.html">
+								https://ffoodd.github.io/sseeeedd/graphiques.html
+							</a>
+						</li>
+						<li>
+							Robin Rendle - Making a bar chart with CSS Grid<br>
+							<a href="https://css-tricks.com/making-a-bar-chart-with-css-grid/">
+								https://css-tricks.com/making-a-bar-chart-with-css-grid/
+							</a>
+						</li>
+						<li>
+							Miriam Suzanne - More CSS Charts, with Grid & Custom Properties
+							<a href="https://css-tricks.com/css-charts-grid-custom-properties/">
+								https://css-tricks.com/css-charts-grid-custom-properties/
+							</a>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/switch.js"></script>
+
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                width: "90%",
+                height: "100%",
+                margin: 0,
+                minScale: 1,
+                maxScale: 1,
+
+                history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); }},
+                    { src: 'plugin/reveal-css-snippet/css-snippet.js', callback: function() {
+                            document.querySelector('#table-part1 div.code').appendChild(RevealCSSSnippet({
+								cssValue:
+`
+  .chart-part1 {
+    --height: 280px;
+    height: var(--height);
+    width: 550px;
+    display: grid;
+    grid-template-areas: "content"
+                         "xAxis"
+                         "title";
+    position: relative;
+  }
+
+  table.chart-part1 tbody tr.effectif {
+    grid-area: content;
+    //display: grid;
+    //grid-template-columns:
+    //grid-auto-columns: 1fr;
+    //grid-column-gap: 5px;
+    //position: absolute;
+    //width: 100%;
+    //height: 100%;
+    z-index: 2;
+  }
+  table.chart-part1 tbody tr.effectif td {
+    //grid-row-start:1;
+    background-color: black;
+    //border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+
+  table.chart-part1 tr.ca {
+    display: none;
+  }`
+							}));
+                            document.querySelector('#table-part2 div.code').appendChild(RevealCSSSnippet({
+                                //el: document.getElementById('table-part1'),
+                                cssValue:
+                                    `
+  table.chart-part2 tbody tr.effectif {
+    grid-area: content;
+    display: grid;
+    grid-auto-columns: 1fr;
+    //grid-template-rows: repeat(var(--yEffectif), 1fr);
+    grid-column-gap: 5px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    //--line-every: 50;
+    //background-image: linear-gradient(to bottom, #ccc 1px, transparent 1px);
+    //background-size: 100% calc(100% / var(--yEffectif) * var(--line-every));
+  }
+  table.chart-part2 tbody tr.effectif td {
+    --start: calc(var(--yEffectif) + 1 - var(--value));
+    grid-row-start: 1;
+    grid-row-end: -1;
+    background-color: var(--zenika-red);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+
+  table.chart-part2 tr.ca {
+    display: none;
+  }`
+                            }));
+
+                            document.querySelector('#table-part3 div.code').appendChild(RevealCSSSnippet({
+                                cssValue:
+`table.chart-part3 tr.ca::before {
+    content: "";
+    --bottom: calc(100% - var(--height));
+    --offset: calc((100% / var(--x)) / 2);
+    //background-color: red;
+    //clip-path: polygon(var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%)),
+	  100% 100%,
+	  0 100%);
+    position: absolute;
+    top: 0;
+    bottom: var(--bottom);
+    width: 100%;
+    z-index: 3;
+}
+table.chart-part3 tbody tr.effectif {
+    display:none;
+}`
+                            }));
+                            document.querySelector('#table-part4 div.code').appendChild(RevealCSSSnippet({
+                                cssValue:
+`table.chart-part4 tr.ca::before {
+    content: "";
+    --line-width: 4px;
+    --offset: calc((100% / var(--x)) / 2);
+    background-color: var(--zenika-red);
+    //clip-path: polygon(var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%)),
+      calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--yCa) * 100%) + var(--line-width)),
+      calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--yCa) * 100%) + var(--line-width)),
+      calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--yCa) * 100%) + var(--line-width)),
+      calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--yCa) * 100%) + var(--line-width)),
+      calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--yCa) * 100%) + var(--line-width)),
+      calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--yCa) * 100%) + var(--line-width)),
+      var(--offset) calc(100% - (var(--1) / var(--yCa) * 100%) + var(--line-width)));
+}
+
+table.chart-part4 tr.ca td {
+    --top: calc(var(--ca-height) - (var(--value) / var(--yCa) * var(--ca-height)));
+}
+table.chart-part4 tr.ca td::before {
+    --size: 0.6rem;
+    background-color: #cccccc;
+    border: 2px solid var(--color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    //content: "";
+    height: var(--size);
+    position: absolute;
+    top: var(--top);
+    transform: translate3d(0, calc(var(--size) / -2), 0);
+    width: var(--size);
+    z-index: 4;
+}
+table.chart-part4 tr.ca td span {
+    position: absolute;
+    //top: calc(var(--top) - 2rem);
+    z-index: 5;
+}
+table.chart-part4 tbody tr.effectif {
+    display:none;
+}`
+                            }));
+                        }
+					},
+				]
+			});
+		</script>
+	</body>
+</html>
