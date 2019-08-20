@@ -24,7 +24,7 @@
   background-color: var(--main-dark-color);
 }
 .alt-side-colors-2 {
-  color: var(--alt3-color);
+  /*color: var(--alt-4-color);*/
   background-color: var(--alt-bg-color);
 }
 
@@ -274,12 +274,12 @@ p {
 
 /* Java */
 .circle:nth-child(1) {
-  top: calc(100%*7/20);
+  top: calc(100%*6/20);
   left: calc(100%*6/20);
 }
 /* Scala */
 .circle:nth-child(2) {
-  top: calc(100%*4/20);
+  top: calc(100%*2/20);
   left: calc(100%*6/20);
 }
 /* Play 2 */
@@ -306,31 +306,50 @@ p {
 }
 /* JQuery*/
 .circle:nth-child(7) {
-  top: calc(100%*12/20);
-  left: calc(100%*6/20);
+  top: calc(100%*9/20);
+  left: calc(100%*2/20);
+  z-index: 7;
+}
+/* Node */
+.circle:nth-child(8) {
+  top: calc(100%*13/20);
+  left: calc(100%*2/20);
+  z-index: 7;
 }
 /* D3 */
-.circle:nth-child(8) {
+.circle:nth-child(9) {
   top: calc(100%*10/20);
   left: calc(100%*11/20);
 }
-/* Vue */
-.circle:nth-child(9) {
+/* Angular */
+.circle:nth-child(10) {
   top: calc(100%*13/20);
-  left: calc(100%*10/20);
+  left: calc(100%*9/20);
+}
+/* Vue */
+.circle:nth-child(11) {
+  top: calc(100%*17/20);
+  left: calc(100%*5/20);
+  z-index: 10;
+}
+/* Svelte */
+.circle:nth-child(12) {
+  top: calc(100%*14/20);
+  left: calc(100%*6/20);
+  z-index: 9;
 }
 /* HTML */
-.circle:nth-child(10) {
-  top: calc(100%*15/20);
-  left: calc(100%*10/20);
+.circle:nth-child(13) {
+  top: calc(100%*10/20);
+  left: calc(100%*15/20);
 }
 /* CSS*/
-.circle:nth-child(11) {
-  top: calc(100%*16/20);
-  left: calc(100%*8/20);
+.circle:nth-child(14) {
+  top: calc(100%*13/20);
+  left: calc(100%*15/20);
 }
 /* Git*/
-.circle:nth-child(12) {
+.circle:nth-child(15) {
   top: calc(100%*6/20);
   left: calc(100%*2/20);
 }
@@ -367,13 +386,22 @@ p {
   align-content: center;
   align-items: baseline;
 }
-.experience .duration {
+.duration {
   display: inline-block;
   font-style: italic;
   font-size: .8rem;
 }
 .position {
-  padding: 0 0 .5rem;
+  padding: 0 0 .5rem .3rem;
+}
+.position .header {
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  align-items: baseline;
+}
+.position .header .duration {
+  margin-left: 1rem;
 }
 
 @media print, screen and (min-width: 42em) {
