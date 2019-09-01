@@ -130,6 +130,13 @@ p {
   display: none;
 } */
 
+.lang a {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--alt-3-color);
+  margin-top: 1rem;
+}
+
 .title {
   grid-area : title;
   font-family: 'Open Sans', sans-serif;
@@ -289,7 +296,7 @@ p {
 }
 /* Akka */
 .circle:nth-child(4) {
-  top: calc(100%*3/20);
+  top: calc(100% * 2 / 20);
   left: calc(100%*10/20);
 }
 /* REST */
@@ -420,7 +427,7 @@ p {
   }
 
   .contact {
-    align-content: left;
+    align-content: start;
   }
   .contact .name,
   .contact .flex-item-left,
@@ -469,5 +476,9 @@ p {
     font-size: 9px;
     text-align: center;
     margin-top: -4px;
+  }
+
+  .lang {
+    display: none;
   }
 }
