@@ -1,0 +1,561 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>It's about Time !</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/solarized-light.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h1>It's about Time !</h1>
+            </section>
+            <section>
+                <img class="fragment" src="assets/tardis.jpg" alt="Tardis" width="33%">
+                <img class="fragment" src="assets/DeLorean.jpg" alt="DeLorean" width="33%">
+                <img class="fragment" src="assets/old-lady.jpg" alt="Granny" width="33%">
+                <aside class="notes">
+                    En mission,arrive un moment où on doit gérer du temps.
+                    Souvent mal fait : ex: Alibeez (congés aec période à cheval 2 mois)
+                    Autre cas, RATP avec les journées de 4h30 à 2h30 du matin
+                    ou EDF avec DST. ou fuseau horaire.
+
+                    Angular pour dashboard du Tardis.
+                    (ou l'arbre généalogique de votre grand-mère)
+                </aside>
+            </section>
+            <section>
+                <h1>Le temps ?</h1>
+                <aside class="notes">
+                    Notion ancienne, mesure universelle, relative, politique, économique.
+                </aside>
+            </section>
+            <section>
+                <img src="assets/ntm.png" alt="NTM">
+                <h2 class="fragment">Nycthémère</h2>
+                <aside class="notes">
+                    Période d'une nuit et d'un jour
+                </aside>
+            </section>
+            <section>
+                <h2>Jour, année, mois</h2>
+                <ul>
+                    <li>3000 av JC, Mésopotamie : 12 mois de 30 jours + 1 mois d'ajustement</li>
+                    <li>2000 av JC, Egypte : Calendrier solaire avec 365 jours</li>
+                </ul>
+                <aside class="notes">
+                    Assyriens : 6 veilles / J ou nuit ~2h
+                </aside>
+            </section>
+            <section>
+                <h2>Heure, minute</h2>
+                <ul>
+                    <li>-1350, Egypte : Clepsydre, 12h par jour et par nuit</li>
+                    <li class="fragment">-500 : Heure temporaire <br>
+                        <img class="fragment" src="assets/heuretemp.gif" alt="Heure temporaire" width="30%">
+                    </li>
+                    <li class="fragment">1300 : Heure equinoxiale</li>
+                </ul>
+                <aside class="notes">
+                    Heure temp: Babylone 12 h, minute= 1h / 60, puis civilisations greco-romaines, cadrans solaires
+                    Heure equinoxiale avec horloge mécanique, calculée en divisant en 24 la durée
+                    en 2 passages du soleil en un lieu à midi. Variation entre 23h59m39 et 24h00m30
+                </aside>
+            </section>
+            <section>
+                <h2>Seconde</h2>
+                <ul>
+                    <li>1889 : Conférence générale des poids et des mesures - 1/86400 du jour solaire moyen</li>
+                    <li>1967 : Unité SI - 9 192 631 770 périodes de la radiation correspondant à la transition entre les
+                        deux niveaux hyperfins de l’état fondamental de l’atome de césium 133
+                    </li>
+                </ul>
+                <aside class="notes">
+                    en 1956, définie comme une division de l'année tropique (solaire) 1900
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h1>Calendrier</h1>
+            </section>
+            <section>
+                <h3>Adoption du calendrier Grégorien proleptique</h3>
+                <ul>
+                    <li>Calendrier julien : 365,25 j => décalage de 10j</li>
+                    <li>Calendrier grégorien : nouvelle definition année bissextile</li>
+                    <li>Le 4 octobre 1582 suivit par le 15 octobre 1582</li>
+                </ul>
+                <aside class="notes">
+                    Du fait de la suppression de dix jours, sainte Thérèse d'Ávila est morte dans la nuit du 4 au 15
+                    octobre 1582.
+                </aside>
+            </section>
+            <section>
+                <h3>Mais ...</h3>
+                <ul class="fragment">
+                    <li>tous les pays n'ont pas changé en même temps</li>
+                    <li>La France en décembre 1582</li>
+                    <li>La Grande-Bretagne et ses possessions en 1752</li>
+                </ul>
+
+                <aside class="notes">
+                    Politique et guerre de religion (surtout catholique, orthodoxes, protestants)
+                    William Shakespeare et Miguel de Cervantes sont morts à la même date (23 avril 1616), mais pas
+                    pendant la même journée.
+                    La Révolution d'Octobre a eu lieu en novembre 1918.
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Quelle heure est-il ?</h1>
+
+                <aside class="notes">
+                    Quand ? mais aussi où ?
+                </aside>
+            </section>
+            <section>
+                <h2>Heure au 19e siècle</h2>
+                <ul>
+                    <li>
+                        Les grandes villes ont leur propre heure equinoxiale. <br>
+                        Ex: Rennes avait un décalage de 17 minutes avec Paris
+                    </li>
+                    <li>Le développement du chemin de fer nécessite une uniformisation du temps</li>
+                    <li>1891 : la France adopte l'heure de Paris.</li>
+                </ul>
+
+            </section>
+            <section>
+                <img src="assets/hoursUSA.jpg" alt="hoursUSA Chart" width="80%">
+            </section>
+            <section>
+                <h2>Heure en France, la suite</h2>
+                <ul>
+                    <li>1911 - Heure GMT-9min21s</li>
+                    <li>1923 - GMT + heure d'été</li>
+                    <li>1940 - Sous l'Occupation GMT+1</li>
+                    <li>1945 - Libération GMT+1</li>
+                    <li>1976 - Choc pétrolier, heure d'été</li>
+                </ul>
+                <aside class="notes">
+                    1940, seulement zone occupée au début, puis zone libre pour raisons pratiques
+                    1945, Heure d'été, puis passage à l'hiver abandonné.
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <img src="assets/rushing.gif" alt="rushing or dragging" width="100%">
+                <aside class="notes">
+                    secondes intercalaires dûes au ralentissement de la Terre
+                    marées, tremblements de terre peuvent affecter la rotation
+                    Pas eu d'accélération encore.
+                </aside>
+            </section>
+            <section>
+                <h2>TAI, UTC, Unix Time</h2>
+                <ul>
+                    <li class="fragment">Temps Atomique Universel, défini en 1967, mesure stricte du temps</li>
+                    <li class="fragment">UTC - Temps Universel Coordonné, comme le TAI mais avec les secondes
+                        intercalaires
+                    </li>
+                    <li class="fragment">Unix Time, Epoch , POSIX Time <br>
+                        Nombre de secondes écoulées depuis le 1er janvier 1970 à 00:00:00 UTC
+                        avec les secondes intercalaires
+                    </li>
+                </ul>
+
+                <span class="fragment">Au 02/03/2020, TAI - UTC = 37s</span>
+
+                <aside class="notes">
+
+                    TAI : linéaire
+                    UTC et Unix : non-linéaire
+                </aside>
+            </section>
+            <section>
+                <table>
+                    <thead>
+                    <td>TAI</td>
+                    <td>UTC</td>
+                    <td>Unix</td>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017-01-01 00:00:35</td>
+                        <td>2016-12-31 23:59:59</td>
+                        <td>1483228799</td>
+                    </tr>
+                    <tr>
+                        <td>2017-01-01 00:00:36</td>
+                        <td>2016-12-31 23:59:<span class="fragment highlight-green">60</span></td>
+                        <td>1483228800</td>
+                    </tr>
+                    <tr>
+                        <td>2017-01-01 00:00:37</td>
+                        <td>2017-01-01 00:00:00</td>
+                        <td>1483228<span class="fragment highlight-red">800</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    Les secondes intercalaires sont annoncées 6 mois à l'avance et parfois
+                    seulement implémentées 24h avant selon les systèmes.
+                    Bug : Hadoop, appli Java, MySql, Kernel Linux non patchés, Cassandra
+                    En 2012, Reddit, Gawker, Mozilla...
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <img src=assets/World_Time_Zones_Map.png alt="Fuseaux horaires">
+                <aside class="notes">
+                    Terre divisée en 24 fuseaux (15°)
+                    Pas toujours calé sur l'heure solaire (France)
+                    1 seul fuseau pour la Chine
+                    Pas que pas h, ni 1/2h, ni 1/4h (Teheran +3:30, Nepal +5:45)
+                    France 12 fuseaux
+                </aside>
+            </section>
+            <section>
+                <img src="assets/indiana-county-map.png" alt="Indiana" width="40%">
+                <div>Indiana</div>
+            </section>
+            <section>
+                <h2>Heure d'été</h2>
+                <h3>Daylight Saving Time</h3>
+                <ul>
+                    <li class="fragment">Tous les pays ne la suivent pas.</li>
+                    <li class="fragment">Les pays qui la suivent ne changent pas tous en même temps.</li>
+                    <li class="fragment">Un pays qui suit le DST peut décider de ne plus le suivre.</li>
+                    <li class="fragment">Des régions peuvent décider de ne pas suivre le pays sur le DST.</li>
+                </ul>
+
+                <aside class="notes">
+                    Les pays proches de l'équateur ne la suivent souvent pas.
+                    Les US/ Canada changent au 1er dimanche de nov alors que l'UE dernier dimanche d'octobre.
+                    Au Maroc, avant 2018, les dates variaient tous les ans, sauf Ramadan.
+                    Depuis, heure d'été permanente, sauf Ramadan.
+                </aside>
+            </section>
+            <section>
+                <img src="assets/DST.png" alt="Heure d'été">
+                <div class="legend">
+                    <span class="legend-square blue-square"></span>
+                    Régions observant l'heure d'été
+                    <span class="legend-square orange-square"></span>
+                    Régions ayant un certain temps observé l'heure d'été
+                    <span class="legend-square red-square"></span>
+                    Régions n'ayant jamais observé l'heure d'été
+                </div>
+                <aside class="notes">
+                    Arizona ne suit pas, mais la Nation Navajo la suit, mais les Hopi ne la suivent pas
+                </aside>
+            </section>
+            <section>
+                <h2>tz database</h2>
+                <ul>
+                    <li>consigne tous les changements</li>
+                    <li>domaine public</li>
+                    <li>maintenue par une personne à l'ICANN / IANA</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Norme ISO 8601</h2>
+                <ul>
+                    <li>Date : 2020-03-02T14:20:00+0100 ou 2020-03-02T13:20:00Z</li>
+                    <li>Intervalle : 2020-03-02T14:00/30</li>
+                    <li>Durée : PT4M35S</li>
+                </ul>
+                <aside class="notes">
+                    Z = Méridien 0 , Zulu
+                    Durée, utilisée par ex dans l'IV
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <img src="assets/Indonesia.png" alt="Indonésie">
+                <h3>UTC+7 <span class="fragment">- Java</span></h3>
+            </section>
+            <section>
+                <h2>Depuis Java 1.1</h2>
+                <ul>
+                    <li>java.util.Date, java.sql.Date</li>
+                    <li>java.util.Calendar</li>
+                    <li>java.text.SimpleDateFormat</li>
+                </ul>
+            </section>
+            <section>
+                <pre><code class="hljs java" data-trim>
+        import java.util.Calendar;
+        import java.util.Date;
+
+        // Date init
+        Calendar cal = Calendar.getInstance();
+        cal.set(2020, 11, 1);
+        Date maybeFirstNovember = cal.getTime();
+        // maybeFirstNovember: Tue Dec 01 21:31:53 CET 2020
+
+        // Date manipulation
+        cal.setTime(maybeFirstNovember);
+        cal.add(Calendar.DATE, 24);
+        Date xmas = cal.getTime();
+        // xmas:  Fri Dec 25 21:31:53 CET 2020
+
+        // Mutable
+        maybeFirstNovember.setDate(25);
+        // maybeFirstNovember: Fri Dec 25 21:31:53 CET 2020
+
+                </code></pre>
+            </section>
+            <section>
+                <pre><code class="hljs java" data-trim>
+        import java.text.ParseException;
+        import java.text.SimpleDateFormat;
+
+        public class DateCalendarUtils {
+
+            private static SimpleDateFormat sdf =
+                    new SimpleDateFormat("yyyy-MM-dd");
+
+            public String parse(String string) {
+                try {
+                    return sdf.parse(string).toString();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    return "error";
+                }
+            }
+        }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Ne plus utiliser java.util.Date et autres</h3>
+                <ul>
+                    <li>API incompréhensible</li>
+                    <li>Date mutable</li>
+                    <li>SimpleDateFormat et Calendar non thread-safe</li>
+                    <li>Timestamp pas unique</li>
+                </ul>
+                <img src="assets/disguted.gif" alt="Rosa disgusted">
+            </section>
+            <section>
+                <h2>Joda Time</h2>
+                <ul>
+                    <li>Créé par Stephen Coleman</li>
+                    <li>Recommandé pour tout code Java < 8</li>
+                    <li>Désormais en maintenance.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Java 8 - Date/Time API</h2>
+                <ul>
+                    <li>JSR 310</li>
+                    <li>Formatage et manipulation, quasi la même API que Joda Time</li>
+                    <li>Java Time Scale : 1s = 1 jour calendaire / 86400 <br>différent de 1s SI</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>LocalDate, LocalDateTime, LocalTime : date du calendrier (ex: anniversaire)</li>
+                    <li>Instant : point précis dans le temps (mesuré en s et ns depuis Epoch avec Jave Time Scale)</li>
+                    <li>Duration : durée, quantité de temps en s et ns</li>
+                </ul>
+            </section>
+            <section>
+                <svg class="date8" width="100%" height="600" viewBox="0 0 1400 600">
+                    <text x="10" y="50" class="iso">2020-03-02T14:25:05.666+01:00</text>
+                    <line x1="10" x2="400" y1="80" y2="80"></line>
+                    <text x="10" y="140">LocalDate</text>
+
+                    <line x1="10" x2="825" y1="180" y2="180"></line>
+                    <text x="10" y="240">LocalDateTime</text>
+
+                    <line x1="10" x2="1050" y1="280" y2="280"></line>
+                    <text x="10" y="340" class="instant">OffsetDateTime</text>
+
+                    <line x1="10" x2="825" y1="380" y2="380"></line>
+                    <text x="10" y="440" class="instant">ZonedDateTime</text>
+                    <text x="850" y="400" class="small"> Europe/Paris - UTC+1</text>
+                    <text x="850" y="445" class="small"> (ZoneId - Zone Offset)</text>
+
+                    <text x="0" y="540" class="small instant">Instant</text>
+                </svg>
+            </section>
+            <section>
+                <ul>
+                    <li>Pour la sauvegarde en BDD, utiliser OffsetDateTime ou Instant</li>
+                    <li>Faire une classe utilitaire exclusivement dédiée aux dates</li>
+                    <li>ZoneRules est basé sur tz database, MAJ à chaque version</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Comment fixer une Date dans ses tests</h3>
+                <div class="dualcode">
+                <pre><code class="hljs java" data-trim>
+    import java.time.Clock;
+    import java.time.LocalDateTime;
+
+    public class Java8Time {
+
+        private Clock clock;
+
+        public Java8Time(Clock clock) {
+            this.clock = clock;
+        }
+
+        public LocalDateTime now() {
+            return LocalDateTime.now(clock);
+        }
+    }
+                </code></pre>
+                    <pre><code class="hljs java" data-trim>
+    import java.time.Clock;
+    import java.time.Instant;
+    import java.time.ZoneId;
+
+    private Java8Time sut;
+
+    @BeforeEach
+    void setUp() {
+        // Fix the time !
+      Clock clock =Clock.fixed(
+        Instant.parse("2020-03-02T14:30:00Z"),
+        ZoneId.of("Europe/Paris")
+      );
+      sut = new Java8Time(clock);
+
+    }
+                </code></pre>
+                </div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Moment.js</h1>
+
+                <aside class="notes">
+                    API Date JS pas très utilisable
+                </aside>
+            </section>
+            <section>
+                <h2>Taille</h2>
+                <img src="assets/moment-webpack.png" alt="Moment.js">
+            </section>
+            <section>
+                <h3>Moment mutable</h3>
+                <pre><code class="hljs javascript" data-trim>
+        import * as mt from 'moment';
+
+        const m1 = mt();
+        // Bad
+        const m2 = m1.subtract(3, 'months');
+
+        // Good
+        const m2 = mt(m1).subtract(3, 'months');
+                </code></pre>
+            </section>
+            <section>
+                <h2>Alternatives</h2>
+                A choisir en fonction de ses besoins de rapidité, de formatage, de manipulation de date et de
+                compatibilité browsers
+                <br>
+                <ul>
+                    <li>Luxon</li>
+                    <li>date-fns</li>
+                    <li>day.js</li>
+                    <li>Intl</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <ul>
+                    <li>Il y a toujours 24h dans une journée.</li>
+                    <li>Un timestamp Unix permet de s'assurer de l'unicité.</li>
+                    <li>Je peux manipuler des dates locales sans soucis vu que mon application n'est utilisée qu'en
+                        France.
+                    </li>
+                    <li>Il n'a jamais eu de 30 février.</li>
+                    <li>Le 35 Mai n'existe pas</li>
+                    <li>Les années non-bissextiles ne peuvent pas avoir de jour en plus.</li>
+                    <li>C'est pas grave d'utiliser java.util.Date, ça fait le boulot.</li>
+                    <li>À tout moment sur Terre, il n'y a qu'une ou deux dates en même temps.</li>
+                    <li>Le temps, c'est pas compliqué.</li>
+                    <li>Je porte des chaussettes 🦓</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Sources</h3>
+                <ul>
+                    <li>
+                        Falsehoods programmers believe about time - Noah Sussman
+                        http://FalsehoodsAboutTime.com
+                    </li>
+                    <li>
+                        UTC is enough for everyone, right ? - Zach Holman
+                        https://zachholman.com/talk/utc-is-enough-for-everyone-right
+                    </li>
+                    <li>https://www.timeanddate.com/</li>
+                    <li>Wikipedia</li>
+                    <li>JavaDoc</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h1>Il te reste 5 min</h1>
+        </section>
+        <section>
+            <h1>Game over !</h1>
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        hash: true,
+        width: "80%",
+        height: "95%",
+        margin: 0,
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/highlight/highlight.js'},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+</script>
+</body>
+</html>
