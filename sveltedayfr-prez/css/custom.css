@@ -1,0 +1,73 @@
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.reveal pre code {
+    max-height: 500px;
+}
+
+.legend {
+    font-size: .9rem;
+}
+.legend-square {
+    border: 1px solid gray;
+    margin-right: .3rem;
+    margin-left: .7rem;
+    vertical-align: middle;
+    display: inline-block;
+    width: .8rem;
+    height: .8rem;
+}
+.blue-square {
+    background: #1a80e6;
+}
+
+.orange-square {
+    background: #ef690a;
+}
+.red-square {
+    background: #c00000;
+}
+
+.date8 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 70px;
+    color: white;
+    fill: white;
+}
+
+.date8 line {
+    color: white;
+    fill: white;
+    stroke: whitesmoke;
+    stroke-width: 8px;
+}
+
+.date8 .small{
+    font-size: 50px;
+    fill: lightcyan;
+}
+.date8 .instant {
+    fill: lightcoral;
+}
+
+.dualcode {
+    display: flex;
+    flex-direction: row;
+}
+
+.dualcode pre {
+    width: 48%;
+}
+
+.reveal ul.nostyle {
+    list-style: none;
+}
+.reveal ul.nostyle li{
+   margin-bottom: 2rem;
+}

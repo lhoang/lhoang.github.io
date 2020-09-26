@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Typescript - Svelte Society Day France</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/solarized-light.css">
+
+
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <img class="fragment" src="assets/Twitter1.png" alt="Annonce Twitter TS" width="50%">
+                <img class="fragment" src="assets/Twitter2.png" alt="Annonce Twitter TS" width="50%">
+            </section>
+            <section>
+                <h3>Comment j'ai migré mon application Svelte vers Typescript</h3>
+            </section>
+            <section>
+                <h3>Avantages</h3>
+                <ul>
+                    <li>Code plus fiable dès la compilation</li>
+                    <li>Maintenabilité ↗️</li>
+                    <li>First-class support => Adoption en entreprise</li>
+                </ul>
+                <aside class="notes">
+                    React, Vue, Angular
+                    Attention: moins de bugs, mais pas exempts de bugs
+                </aside>
+            </section>
+            <section>
+                <h3>Inconvénients</h3>
+                <ul>
+                    <li>Transpilation</li>
+                    <li>Nouveau langage à apprendre</li>
+                    <li>Beaucoup plus verbeux, DX ↘️</li>
+                    <li>Besoin d'un nouvel outillage</li>
+                </ul>
+            </section>
+            <section>
+                <a href="https://velib-stats.surge.sh" target="_blank">https://velib-stats.surge.sh</a>
+                <img src="assets/Velib-stats.png" alt="Site stats Velib">
+            </section>
+            <section>
+                <h3>Migration en 5 étapes</h3>
+                <p>En suivant : https://svelte.dev/blog/svelte-and-typescript <br>
+                 et en comparant avec un project fraîchement généré pour TS :
+                <pre><code class="hljs shell" data-trim>
+                npx degit sveltejs/template svelte-typescript-app
+                cd svelte-typescript-app
+                node scripts/setupTypeScript.js
+                </code></pre>
+            </section>
+            <section>
+                <h3>Node / npm</h3>
+                <p>Mettre à jour Node avec une version différente de 13.0-13.7</p>
+                <pre><code class="hljs shell" data-trim>
+                [!] Error: No valid exports main found for
+                    '.../node_modules/@rollup/plugin-node-resolve'
+                </code></pre>
+            </section>
+            <section>
+                <h3>package.json</h3>
+                <pre><code class="hljs json" data-trim>
+                scripts": {
+                    "build": "rollup -c",
+                    "dev": "rollup -c -w",
+                    "start": "sirv public",
+                    "validate": "svelte-check"
+                },
+                "devDependencies": {
+                    "@rollup/plugin-commonjs": "^12.0.0",
+                    "@rollup/plugin-node-resolve": "^8.0.0",
+                    "@rollup/plugin-typescript": "^4.0.0",
+                    "@tsconfig/svelte": "^1.0.0",
+                    "rollup": "^2.3.4",
+                    "rollup-plugin-livereload": "^1.3.0",
+                    "rollup-plugin-svelte": "^5.0.3",
+                    "rollup-plugin-terser": "^7.0.1",
+                    "sirv-cli": "^1.0.0",
+                    "svelte": "^3.24.0",
+                    "svelte-check": "^1.0.0",
+                    "svelte-preprocess": "^4.0.0",
+                    "tslib": "^2.0.0",
+                    "typescript": "^3.9.3"
+                },
+                 </code></pre>
+            </section>
+            <section>
+                <h3>rollup.config.js</h3>
+                <ul>
+                    <li>Modification en faisant le diff avec un project fraîchement généré pour TS</li>
+                </ul>
+                <aside class="notes">
+                   Montrer le diff
+                </aside>
+            </section>
+            <section>
+                <h2>Code source</h2>
+                <ul>
+                    <li>Renommer les fichiers *.js en *.ts</li>
+                    <li>Dans les composants Svelte, ajouter "lang=ts"
+                        <pre><code class="hljs html" data-trim>
+                            &lt;script lang="ts"&gt;
+                        </code></pre>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>tsconfig.json</h2>
+                <ul>
+                    <li>Ajuster la configuration</li>
+                </ul>
+                <pre><code class="hljs javascript" data-trim>
+                         import dayjs from 'dayjs';
+                    "This module is declared with using 'export =',
+                    and can only be used with a default import when using
+                    the 'allowSyntheticDefaultImports' flag."
+                        </code></pre>
+                <pre><code class="hljs json" data-trim>
+                            {
+                              "extends": "@tsconfig/svelte/tsconfig.json",
+                              "include": ["src/**/*"],
+                              "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+                              "compilerOptions": {
+                                "esModuleInterop": true,
+                                "allowSyntheticDefaultImports": true,
+                              }
+                            }
+                        </code></pre>
+            </section>
+            <section>
+                <h1>The end</h1>
+                <img class="fragment" src="assets/mario.png" alt="Thank you Mario">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Le typage</h1>
+            </section>
+            <section>
+                <h3>Validation Typescript</h3>
+                <pre><code class="hljs shell" data-trim>
+                            npm run validate
+                        </code></pre>
+                <p>ou</p>
+                <pre><code class="hljs shell" data-trim>
+                            npx svelte-check
+                </code></pre>
+            </section>
+            <section>
+                <video data-autoplay src="assets/log.m4v"></video>
+            </section>
+            <section>
+                <h3>Interlude Outillage IDE</h3>
+                <ul>
+                    <li>✅ VSCode Plugin </li>
+                    <li>❌ IntelliJ</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>Définir tous les types</li>
+                    <li>Importer les types de modules utilisés <br>
+                        ex: dans devDependencies du package.json
+                        <pre><code class="hljs javascript" data-trim>
+                            "@types/d3-array": "^2.0.0"
+                        </code></pre>
+                    </li>
+                    <li>Typer le retour des fonctions</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Importer une interface ou un type depuis TS 3.8</h3>
+                <pre><code class="hljs javascript" data-trim>
+                    import type {Course} from "../models/velib.interface";
+                </code></pre>
+                <p>sinon erreur à la compilation</p>
+                <pre><code class="hljs shell" data-trim>
+                   Error: 'Course' is not exported by src/models/velib.interface.ts, imported by src/viz/Distance.svelte
+                </code></pre>
+            </section>
+            <section>
+                <h3>Déclarer les variables avant une instruction réactive</h3>
+                <pre><code class="hljs javascript" data-trim>
+                let coursesByMonth: CoursesByMonthEntries = [];
+                let maxDistance = 0;
+
+                $: coursesByMonth = getCoursesByMonthAndDay($coursesByDay, $nbWheels);
+                $: maxDistance = findMaxDistanceForWheels(coursesByMonth) * 1.2;
+                </code></pre>
+            </section>
+            <section>
+                <h3>Store  - typer l'appel</h3>
+                <pre><code class="hljs javascript" data-trim>
+                import type {Course, CoursesByDay} from "./models/velib.interface";
+
+                export const coursesByDay = writable&lt;CoursesByDay&gt;({});
+                export const currentDay = writable&lt;string&gt;(getDay(new Date()));
+                export const detail: Readable&lt;Array&lt;Course&gt;&gt; =
+                        derived([currentDay,coursesByDay],
+                                ([$currentDay, $coursesByDay]) =>
+                                    $coursesByDay && $coursesByDay[$currentDay]
+                                        ? $coursesByDay[$currentDay]
+                                        : []
+                        );
+                </code></pre>
+            </section>
+            <section>
+                <p>En cas d'erreur de fonction qui devrait exister</p>
+                <pre><code class="hljs shell" data-trim>
+                [!] (plugin typescript) Error: @rollup/plugin-typescript TS2339:
+                    Property 'flatMap' does not exist on type 'CoursesByMonthEntries'.
+                </code></pre>
+                <p>Ajouter dans le tsconfig.json</p>
+                <pre><code class="hljs json" data-trim>
+                "compilerOptions": {
+                    "target": "es6",
+                    "lib": [
+                        "es2019",
+                        "dom"
+                    ]
+                 </code></pre>
+            </section>
+            <section>
+                <h3>Spécial D3.js</h3>
+                <pre><code class="hljs javascript" data-trim>
+                    axisBottom(xScale) // et non  axisBottom().scale(xScale)
+                    d3line&lt;Course&gt;()
+                    d3arc&lt;void&gt;()
+                </code></pre>
+                <p>Plus strict sur les attributs SVG et HTML</p>
+                <pre><code class="hljs html" data-trim>
+                    &lt;textPath xlink:href="#week{i}" startOffset="12%" &gt;
+    
+                    &lt;input type="text" bind:value={$totalDistance} size={4}/&gt;km
+                </code></pre>
+                
+            </section>
+        </section>
+        <section>
+            <h2>Conclusion</h2>
+            <ul class="nostyle">
+                <li>🥵 Fastidieux d'ajouter les types après coup <br>
+                    Mais peut être progressif
+                </li>
+                <li>😭 Outillage pas encore satisfaisant mais sur la bonne voie <br>
+                    Debug impossible pour le moment (#5015, #5182)
+                </li>
+                <li>😕 Beaucoup plus verbeux, DX ↘️</li>
+                <li>🤝 Bugs détectés au moment de la compilation <br>
+                    Meilleure maintenabilité
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Credits</h3>
+            <ul>
+                <li>Image Super Mario Bros - Nintendo</li>
+            </ul>
+            <h3>Github Repository</h3>
+            <ul>
+                <li>
+                https://github.com/lhoang/velib
+                </li>
+                <li>Pull Request Typescript : <br> https://github.com/lhoang/velib/pull/4</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        hash: true,
+        width: "80%",
+        height: "95%",
+        margin: 0,
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/highlight/highlight.js'},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+</script>
+</body>
+</html>
