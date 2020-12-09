@@ -179,7 +179,7 @@
             <section>
                 <h2>TAI, UTC, Unix Time</h2>
                 <ul>
-                    <li class="fragment">Temps Atomique Universel, défini en 1967, mesure stricte du temps</li>
+                    <li class="fragment">Temps Atomique International, défini en 1967, mesure stricte du temps</li>
                     <li class="fragment">UTC - Temps Universel Coordonné, comme le TAI mais avec les secondes
                         intercalaires
                     </li>
@@ -189,7 +189,7 @@
                     </li>
                 </ul>
 
-                <span class="fragment">Au 02/03/2020, TAI - UTC = 37s</span>
+                <span class="fragment">Au 10/12/2020, TAI - UTC = 37s</span>
 
                 <aside class="notes">
 
@@ -289,8 +289,8 @@
             <section>
                 <h2>Norme ISO 8601</h2>
                 <ul>
-                    <li>Date : 2020-03-02T14:20:00+0100 ou 2020-03-02T13:20:00Z</li>
-                    <li>Intervalle : 2020-03-02T14:00/30</li>
+                    <li>Date : 2020-12-10T14:20:00+0100 ou 2020-12-10T13:20:00Z</li>
+                    <li>Intervalle : 2020-12-10T14:00/30</li>
                     <li>Durée : PT4M35S</li>
                 </ul>
                 <aside class="notes">
@@ -395,6 +395,9 @@
                     <line x1="10" x2="400" y1="80" y2="80"></line>
                     <text x="10" y="140">LocalDate</text>
 
+                    <line x1="440" x2="830" y1="80" y2="80"></line>
+                    <text x="440" y="140">LocalTime</text>
+
                     <line x1="10" x2="825" y1="180" y2="180"></line>
                     <text x="10" y="240">LocalDateTime</text>
 
@@ -415,6 +418,9 @@
                     <li>Faire une classe utilitaire exclusivement dédiée aux dates</li>
                     <li>ZoneRules est basé sur tz database, MAJ à chaque version</li>
                 </ul>
+                <aside class="notes">
+                    L'ecosystème Java utilise encore l'ancienne API: ex / Spark 2 et le Calendrier Julien
+                </aside>
             </section>
             <section>
                 <h3>Comment fixer une Date dans ses tests</h3>
@@ -460,6 +466,7 @@
         <section>
             <section>
                 <h1>Moment.js</h1>
+                <p class="fragment highlight-red">Deprecated</p>
 
                 <aside class="notes">
                     API Date JS pas très utilisable
@@ -492,6 +499,7 @@
                     <li>date-fns</li>
                     <li>day.js</li>
                     <li>Intl</li>
+                    <li>Temporal - TC39 (Stage 2)</li>
                 </ul>
             </section>
         </section>
@@ -509,7 +517,7 @@
                     <li>C'est pas grave d'utiliser java.util.Date, ça fait le boulot.</li>
                     <li>À tout moment sur Terre, il n'y a qu'une ou deux dates en même temps.</li>
                     <li>Le temps, c'est pas compliqué.</li>
-                    <li>Je porte des chaussettes 🦓</li>
+                    <li>Ce que j'ai raconté sur NTM est faux, ça a plutôt un lien avec Oedipe.</li>
                 </ul>
             </section>
             <section>
@@ -526,14 +534,11 @@
                     <li>https://www.timeanddate.com/</li>
                     <li>Wikipedia</li>
                     <li>JavaDoc</li>
+                    <li>JavaScript Temporal Proposal
+                        https://tc39.es/proposal-temporal/docs/index.html
+                    </li>
                 </ul>
             </section>
-        </section>
-        <section>
-            <h1>Il te reste 5 min</h1>
-        </section>
-        <section>
-            <h1>Game over !</h1>
         </section>
     </div>
 </div>
