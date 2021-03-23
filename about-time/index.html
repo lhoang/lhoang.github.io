@@ -111,6 +111,7 @@
                 <aside class="notes">
                     Du fait de la suppression de dix jours, sainte Thérèse d'Ávila est morte dans la nuit du 4 au 15
                     octobre 1582.
+                    Proleptique : rétropolé , ISO, mais dans l'usage, histoire, Calendrier Julien
                 </aside>
             </section>
             <section>
@@ -128,10 +129,24 @@
                     La Révolution d'Octobre a eu lieu en novembre 1918.
                 </aside>
             </section>
+            <section>
+                <h3>Jour Julien</h3>
+                <ul class="fragment">
+                    <li>Notion inventée par Joseph-Juste Scaliger en 1583</li>
+                    <li>Commence le 1er janvier 4713 av JC, lundi, à midi.</li>
+                    <li>Compte des jours depuis le début + fraction de jour <br>
+                        Ex: 23/03/2021 12:30  <=>  2459297.02083 </li>
+                    <li>Utilisé en astronomie et dans certaines BDD (INT96)</li>
+                </ul>
+                <aside>
+                    le 1er janvier 1950 à 0 h pour le CNES et depuis le 24 mai 1968 à 0 h pour la NASA
+                </aside>
+            </section>
         </section>
         <section>
             <section>
                 <h1>Quelle heure est-il ?</h1>
+                <p class="fragment">Die Frage ist nicht wann, sondern wo</p>
 
                 <aside class="notes">
                     Quand ? mais aussi où ?
@@ -173,7 +188,7 @@
                 <aside class="notes">
                     secondes intercalaires dûes au ralentissement de la Terre
                     marées, tremblements de terre peuvent affecter la rotation
-                    Pas eu d'accélération encore.
+                    Accélération pour le première fois en 2020
                 </aside>
             </section>
             <section>
@@ -189,7 +204,7 @@
                     </li>
                 </ul>
 
-                <span class="fragment">Au 10/12/2020, TAI - UTC = 37s</span>
+                <span class="fragment">Au 23/03/2021, TAI - UTC = 37s</span>
 
                 <aside class="notes">
 
@@ -289,8 +304,8 @@
             <section>
                 <h2>Norme ISO 8601</h2>
                 <ul>
-                    <li>Date : 2020-12-10T14:20:00+0100 ou 2020-12-10T13:20:00Z</li>
-                    <li>Intervalle : 2020-12-10T14:00/30</li>
+                    <li>Date : 2021-03-23T12:35:00+0100 ou 2021-03-23T11:35:00Z</li>
+                    <li>Intervalle : 2021-03-23T12:15/45</li>
                     <li>Durée : PT4M35S</li>
                 </ul>
                 <aside class="notes">
@@ -385,18 +400,15 @@
             <section>
                 <ul>
                     <li>LocalDate, LocalDateTime, LocalTime : date du calendrier (ex: anniversaire)</li>
-                    <li>Instant : point précis dans le temps (mesuré en s et ns depuis Epoch avec Jave Time Scale)</li>
+                    <li>Instant : point précis dans le temps (mesuré en s et ns depuis Epoch avec Java Time Scale)</li>
                     <li>Duration : durée, quantité de temps en s et ns</li>
                 </ul>
             </section>
             <section>
                 <svg class="date8" width="100%" height="600" viewBox="0 0 1400 600">
-                    <text x="10" y="50" class="iso">2020-03-02T14:25:05.666+01:00</text>
+                    <text x="10" y="50" class="iso">2021-03-23T12:40:05.666+01:00</text>
                     <line x1="10" x2="400" y1="80" y2="80"></line>
                     <text x="10" y="140">LocalDate</text>
-
-                    <line x1="440" x2="830" y1="80" y2="80"></line>
-                    <text x="440" y="140">LocalTime</text>
 
                     <line x1="10" x2="825" y1="180" y2="180"></line>
                     <text x="10" y="240">LocalDateTime</text>
@@ -418,9 +430,6 @@
                     <li>Faire une classe utilitaire exclusivement dédiée aux dates</li>
                     <li>ZoneRules est basé sur tz database, MAJ à chaque version</li>
                 </ul>
-                <aside class="notes">
-                    L'ecosystème Java utilise encore l'ancienne API: ex / Spark 2 et le Calendrier Julien
-                </aside>
             </section>
             <section>
                 <h3>Comment fixer une Date dans ses tests</h3>
@@ -466,7 +475,6 @@
         <section>
             <section>
                 <h1>Moment.js</h1>
-                <p class="fragment highlight-red">Deprecated</p>
 
                 <aside class="notes">
                     API Date JS pas très utilisable
@@ -490,6 +498,9 @@
                 </code></pre>
             </section>
             <section>
+                Depuis septembre 2020, Moment est considéré comme legacy par l'équipe du projet.
+            </section>
+            <section>
                 <h2>Alternatives</h2>
                 A choisir en fonction de ses besoins de rapidité, de formatage, de manipulation de date et de
                 compatibilité browsers
@@ -499,7 +510,7 @@
                     <li>date-fns</li>
                     <li>day.js</li>
                     <li>Intl</li>
-                    <li>Temporal - TC39 (Stage 2)</li>
+                    <li>Temporal - TC39 (Stage 3)</li>
                 </ul>
             </section>
         </section>
