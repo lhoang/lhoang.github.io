@@ -281,28 +281,28 @@ p {
 
 /* Java */
 .circle:nth-child(1) {
-  top: calc(100%*6/20);
-  left: calc(100%*6/20);
+  top: calc(100%*2/20);
+  left: calc(100%*2/20);
 }
 /* Scala */
 .circle:nth-child(2) {
   top: calc(100%*2/20);
   left: calc(100%*6/20);
 }
-/* Play 2 */
+/* Rx */
 .circle:nth-child(3) {
   top: calc(100%*4/20);
   left: calc(100%*10/20);
 }
-/* Akka */
+/* REST */
 .circle:nth-child(4) {
   top: calc(100% * 2 / 20);
   left: calc(100%*10/20);
 }
-/* REST */
+/* Node */
 .circle:nth-child(5) {
-  top: calc(100%*8/20);
-  left: calc(100%*5/20);
+  top: calc(100%*6/20);
+  left: calc(100%*6/20);
   z-index: 9;
 }
 /* JS */
@@ -311,56 +311,41 @@ p {
   left: calc(100%*4/20);
   z-index: 8;
 }
-/* JQuery*/
+/* D3*/
 .circle:nth-child(7) {
-  top: calc(100%*9/20);
+  top: calc(100%*8/20);
   left: calc(100%*2/20);
-  z-index: 7;
+  z-index: 10;
 }
-/* Node */
+/* Angular */
 .circle:nth-child(8) {
   top: calc(100%*13/20);
   left: calc(100%*2/20);
-  z-index: 7;
+  z-index: 8;
 }
-/* D3 */
+/* Svelte */
 .circle:nth-child(9) {
-  top: calc(100%*10/20);
-  left: calc(100%*11/20);
+  top: calc(100%*8/20);
+  left: calc(100%*10/20);
+  z-index: 10;
 }
-/* Angular */
+/* HTML */
 .circle:nth-child(10) {
   top: calc(100%*13/20);
   left: calc(100%*9/20);
 }
-/* Vue */
+/* CSS */
 .circle:nth-child(11) {
-  top: calc(100%*17/20);
-  left: calc(100%*5/20);
-  z-index: 10;
-}
-/* Svelte */
-.circle:nth-child(12) {
   top: calc(100%*14/20);
   left: calc(100%*6/20);
+  z-index: 10;
+}
+/* Git */
+.circle:nth-child(12) {
+  top: calc(100%*14/20);
+  left: calc(100%*13/20);
   z-index: 9;
 }
-/* HTML */
-.circle:nth-child(13) {
-  top: calc(100%*10/20);
-  left: calc(100%*15/20);
-}
-/* CSS*/
-.circle:nth-child(14) {
-  top: calc(100%*13/20);
-  left: calc(100%*15/20);
-}
-/* Git*/
-.circle:nth-child(15) {
-  top: calc(100%*6/20);
-  left: calc(100%*2/20);
-}
-
 
 
 .education {
